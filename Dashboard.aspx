@@ -55,7 +55,7 @@
                             <li><a href="#" onClick="switchView('Supply Spend')">Supply Spend</a></li>
                             <li><a href="#" onClick="switchView('Stat Calls')">Stat Calls</a></li>
                             <li><a href="#" onClick="switchView('Warehouse Value')">Warehouse Volume</a></li>
-                            <li><a href="#" onClick="switchView('Warehouse Size')">Warehouse Size</a></li>
+                            <li><a href="#" onClick="switchView('Warehouse Detail')">Warehouse Detail</a></li>
                             <li><a href="#" onClick="switchView('Pick Line Volume')">Pick Line Volume</a></li>
                             <li><a href="#" onClick="switchView('Overall Line Volume')">Overall Line Volume</a></li>
                             <li class="divider"></li>
@@ -84,9 +84,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                        <a href="#" onClick="revertAll()">Reset View</a>
-                    </li>
+
 					<li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Export <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -100,8 +98,14 @@
                             
                         </ul>
                     </li>
-					<li class="dropdown">
-                        <a href="#" onClick="shareViz()">Share This!</a>
+              <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Updates<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onClick="revertAll()">Reset All Views</a></li>
+                            <li><a href="#" onClick="PauseUpdate()">Pause Report Refresh</a></li>
+                            <li><a href="#" onClick="ResumeUpdate()">Resume Report Refresh</a></li>			
+                            
+                        </ul>
                     </li>
           </ul>
 
@@ -156,6 +160,17 @@ var downloadWorkbook = function(){
 var shareViz = function(){
 	viz.showShareDialog();
 }
+var PauseUpdate = function () {
+    viz.pauseAutomaticUpdatesAsync();
+}
+var ResumeUpdate = function () {
+    viz.resumeAutomaticUpdatesAsync()
+}
+var ToggleUpdate = function () {
+    viz.toggleAutomaticUpdatesAsync();
+}
+
+
 
 </script>
 </body>

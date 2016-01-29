@@ -348,7 +348,7 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITRoleOperationsB"></asp:Button>
+                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITRoleOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:Button>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="RoleOperationsInsert" runat="server" Text="Add"  CommandName="RoleOperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -416,7 +416,7 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITUserOperationsB"></asp:Button>
+                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITUserOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:Button>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="UserOperationsInsert" runat="server" Text="Add"  CommandName="UserOperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>

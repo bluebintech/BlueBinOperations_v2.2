@@ -5,7 +5,7 @@ Partial Class HardwareOrder
     Inherits Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not Page.IsPostBack() Then
+
             'Comment
             'This populates the Customer linked to Hardware tables displaying from the config value
             Dim con As New SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString)
@@ -28,12 +28,15 @@ Partial Class HardwareOrder
 
             GridViewHardware.DataBind()
             GridView2.DataBind()
-        End If
+
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles NewHardware.Click
         Response.Redirect("~/HardwareOrderNew")
         GridViewHardware.DataBind()
     End Sub
-
+    Protected Sub OnPageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        GridViewHardware.PageIndex = e.NewPageIndex
+        GridViewHardware.DataBind()
+    End Sub
 
 End Class

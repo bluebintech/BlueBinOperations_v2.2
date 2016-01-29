@@ -32,10 +32,44 @@ Public Class Dashboard
             Dim MENUDashboardSrc As String
             Dim MENUDashboardOps As String
             Dim MENUDashboardHB As String
+            Dim UserMENUDashboardSC As String
+            Dim UserMENUDashboardSrc As String
+            Dim UserMENUDashboardOps As String
+            Dim UserMENUDashboardHB As String
 
 
             Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
+            Using conroles As New SqlConnection(constr)
+                Using cmdadmin As New SqlCommand("sp_ValidateBlueBinRole")
+                    cmdadmin.CommandType = CommandType.StoredProcedure
+                    cmdadmin.Connection = conroles
+                    conroles.Open()
+                    'cmd.ExecuteNonQuery()
+                    'command.Parameters["@id"].Value = rowUserID
 
+                    'UserMENU-Dashboard-SupplyChain
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-SupplyChain")
+                    UserMENUDashboardSC = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-Sourcing
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-Sourcing")
+                    UserMENUDashboardSrc = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-Ops
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-Ops")
+                    UserMENUDashboardOps = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-HuddleBoard
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-HuddleBoard")
+                    UserMENUDashboardHB = Convert.ToString(cmdadmin.ExecuteScalar())
+
+                    conroles.Close()
+                End Using
+            End Using
 
             Using conmenu As New SqlConnection(constr)
                 Using cmdmenu As New SqlCommand("sp_ValidateMenus")
@@ -69,30 +103,30 @@ Public Class Dashboard
             'Main Menus
 
 
-            If MENUDashboardSC = "Yes" Then
-                themes.Visible = True
-            Else
+            If MENUDashboardSC = "No" Or UserMENUDashboardSC = "No" Then
                 themes.Visible = False
+            Else
+                themes.Visible = True
             End If
 
-            If MENUDashboardSrc = "Yes" Then
-                download3.Visible = True
-            Else
+            If MENUDashboardSrc = "No" Or UserMENUDashboardSrc = "No" Then
                 download3.Visible = False
+            Else
+                download3.Visible = True
             End If
 
-            If MENUDashboardOps = "Yes" Then
-                download2.Visible = True
-            Else
+            If MENUDashboardOps = "No" Or UserMENUDashboardOps = "No" Then
                 download2.Visible = False
+            Else
+                download2.Visible = True
             End If
 
-            If MENUDashboardHB = "Yes" Then
-                HuddleBoardDD.Visible = True
-                HBDivider.Visible = True
-            Else
+            If MENUDashboardHB = "No" Or UserMENUDashboardHB = "No" Then
                 HuddleBoardDD.Visible = False
                 HBDivider.Visible = False
+            Else
+                HuddleBoardDD.Visible = True
+                HBDivider.Visible = True
             End If
 
         End If

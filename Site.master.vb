@@ -37,11 +37,21 @@ Partial Public Class SiteMaster
 
         If Me.Page.User.Identity.IsAuthenticated Then
             Dim UserLogin As String = Page.User.Identity.Name.ToString()
-            Dim ADMINMENU As String
-            Dim ADMINCONFIG As String
-            Dim ADMINUSERS As String
-            Dim ADMINRESOURCES As String
-            Dim ADMINTRAINING As String
+            Dim UserADMINMENU As String
+            Dim UserADMINCONFIG As String
+            Dim UserADMINUSERS As String
+            Dim UserADMINRESOURCES As String
+            Dim UserADMINTRAINING As String
+            Dim UserMENUDashboard As String
+            Dim UserMENUDashboardSC As String
+            Dim UserMENUDashboardSrc As String
+            Dim UserMENUDashboardOps As String
+            Dim UserMENUDashboardHB As String
+            Dim UserMENUQCN As String
+            Dim UserMENUGemba As String
+            Dim UserMENUHardware As String
+            Dim UserMENUScanning As String
+            Dim UserMENUOther As String
             Dim MENUDashboard As String
             Dim MENUDashboardSC As String
             Dim MENUDashboardSrc As String
@@ -64,27 +74,78 @@ Partial Public Class SiteMaster
                     'ADMIN-MENU
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-MENU")
-                    ADMINMENU = Convert.ToString(cmdadmin.ExecuteScalar())
+                    UserADMINMENU = Convert.ToString(cmdadmin.ExecuteScalar())
                     cmdadmin.Parameters.Clear()
                     'ADMIN-CONFIG
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-CONFIG")
-                    ADMINCONFIG = Convert.ToString(cmdadmin.ExecuteScalar())
+                    UserADMINCONFIG = Convert.ToString(cmdadmin.ExecuteScalar())
                     cmdadmin.Parameters.Clear()
                     'ADMIN-USERS
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-USERS")
-                    ADMINUSERS = Convert.ToString(cmdadmin.ExecuteScalar())
+                    UserADMINUSERS = Convert.ToString(cmdadmin.ExecuteScalar())
                     cmdadmin.Parameters.Clear()
                     'ADMIN-RESOURCES
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-RESOURCES")
-                    ADMINRESOURCES = Convert.ToString(cmdadmin.ExecuteScalar())
+                    UserADMINRESOURCES = Convert.ToString(cmdadmin.ExecuteScalar())
                     cmdadmin.Parameters.Clear()
                     'ADMIN-TRAINING
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-TRAINING")
-                    ADMINTRAINING = Convert.ToString(cmdadmin.ExecuteScalar())
+                    UserADMINTRAINING = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard")
+                    UserMENUDashboard = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-SupplyChain
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-SupplyChain")
+                    UserMENUDashboardSC = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-Sourcing
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-Sourcing")
+                    UserMENUDashboardSrc = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-Ops
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-Ops")
+                    UserMENUDashboardOps = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Dashboard-HuddleBoard
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Dashboard-HuddleBoard")
+                    UserMENUDashboardHB = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-QCN
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-QCN")
+                    UserMENUQCN = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Gemba
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Gemba")
+                    UserMENUGemba = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Hardware
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Hardware")
+                    UserMENUHardware = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Scanning
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Scanning")
+                    UserMENUScanning = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'UserMENU-Other
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "MENU-Other")
+                    UserMENUOther = Convert.ToString(cmdadmin.ExecuteScalar())
+
                     conroles.Close()
                 End Using
             End Using
@@ -141,95 +202,95 @@ Partial Public Class SiteMaster
             End Using
 
             'Admin Meus
-            If ADMINMENU = "Yes" Then
+            If UserADMINMENU = "Yes" Then
                 ADMINMENUDD.Visible = True
             Else
                 ADMINMENUDD.Visible = False
             End If
 
-            If ADMINCONFIG = "Yes" Then
+            If UserADMINCONFIG = "Yes" Then
                 ADMINCONFIGDD.Visible = True
             Else
                 ADMINCONFIGDD.Visible = False
             End If
 
-            If ADMINUSERS = "Yes" Then
+            If UserADMINUSERS = "Yes" Then
                 ADMINUSERSDD.Visible = True
             Else
                 ADMINUSERSDD.Visible = False
             End If
 
-            If ADMINRESOURCES = "Yes" Then
+            If UserADMINRESOURCES = "Yes" Then
                 ADMINRESOURCESDD.Visible = True
             Else
                 ADMINRESOURCESDD.Visible = False
             End If
 
-            If ADMINTRAINING = "Yes" Then
+            If UserADMINTRAINING = "Yes" Then
                 ADMINTRAININGDD.Visible = True
             Else
                 ADMINTRAININGDD.Visible = False
             End If
 
             'Main Menus
-            If MENUDashboard = "Yes" Then
-                DashboardDD.Visible = True
-            Else
+            If MENUDashboard = "No" Or UserMENUDashboard = "No" Then
                 DashboardDD.Visible = False
+            Else
+                DashboardDD.Visible = True
             End If
 
-            If MENUDashboardHB = "Yes" Then
-                HuddleBoardDD.Visible = True
-            Else
+            If MENUDashboardHB = "No" Or UserMENUDashboardHB = "No" Then
                 HuddleBoardDD.Visible = False
+            Else
+                HuddleBoardDD.Visible = True
             End If
 
-            'If MENUDashboardSC = "Yes" Then
-            'DashboardDD.Visible = True
-            'Else
+            'If MENUDashboardSC = "No" Or UserMENUDashboardSC = "No" Then
             'DashboardDD.Visible = False
+            'Else
+            'DashboardDD.Visible = True
             'End If
 
-            'If MENUDashboardSrc = "Yes" Then
-            'DashboardDD.Visible = True
-            'Else
+            'If MENUDashboardSrc = "No" Or UserMENUDashboardSrc = "No" Then
             'DashboardDD.Visible = False
+            'Else
+            'DashboardDD.Visible = True
             'End If
 
-            'If MENUDashboardOps = "Yes" Then
-            'DashboardDD.Visible = True
-            'Else
+            'If MENUDashboardOps = "No" Or UserMENUDashboardOps = "No" Then
             'DashboardDD.Visible = False
+            'Else
+            'DashboardDD.Visible = True
             'End If
 
-            If MENUQCN = "Yes" Then
-                QCNDD.Visible = True
-            Else
+            If MENUQCN = "No" Or UserMENUQCN = "No" Then
                 QCNDD.Visible = False
+            Else
+                QCNDD.Visible = True
             End If
 
-            If MENUGemba = "Yes" Then
-                GembaDD.Visible = True
-            Else
+            If MENUGemba = "No" Or UserMENUGemba = "No" Then
                 GembaDD.Visible = False
+            Else
+                GembaDD.Visible = True
             End If
 
-            If MENUScanning = "Yes" Then
-                ScanningDD.Visible = True
-            Else
+            If MENUScanning = "No" Or UserMENUScanning = "No" Then
                 ScanningDD.Visible = False
+            Else
+                ScanningDD.Visible = True
             End If
 
-            If MENUHardware = "Yes" Then
-                HardwareDD.Visible = True
-            Else
+            If MENUHardware = "No" Or UserMENUHardware = "No" Then
                 HardwareDD.Visible = False
+            Else
+                HardwareDD.Visible = True
             End If
 
-            If MENUOther = "Yes" Then
-                OtherDD.Visible = True
-            Else
+            If MENUOther = "No" Or UserMENUOther = "No" Then
                 OtherDD.Visible = False
+            Else
+                OtherDD.Visible = True
             End If
 
 
