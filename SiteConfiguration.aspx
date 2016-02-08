@@ -4,7 +4,7 @@
 
 <asp:Table ID="PageTable" runat="server" Width="500px" HorizontalAlign="Center">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
-    <p>Welcome to Site Configuration for your BlueBin Operations Site.  You can update the below configurations to change the contect of your site.</p>
+    <p>Welcome to Site Configuration for the BlueBin DMS Application.  You can update the below configurations to change the contect of your site.</p>
     <p>
             <asp:LinkButton ID="AdvancedConfigB" runat="server" class="btn btn-default">Advanced Config</asp:LinkButton>&nbsp;
             <asp:LinkButton ID="QCNTypeConfigB" runat="server" class="btn btn-default">QCN Type</asp:LinkButton>&nbsp;
@@ -58,10 +58,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Config Name" SortExpression="ConfigName">
                 <EditItemTemplate>
-                    <asp:Label runat="server" Text='<%# Eval("ConfigName") %>' ID="Label2"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Eval("ConfigName") %>' ID="Label2" ToolTip='<%# Bind("Description") %>'></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label runat="server" Text='<%# Bind("ConfigName") %>' ID="Label2"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Bind("ConfigName") %>' ID="Label2" ToolTip='<%# Bind("Description") %>'></asp:Label>
                 </ItemTemplate>
                 <FooterTemplate><asp:TextBox runat="server" ID="ConfigName"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorConfigName" ValidationGroup="AddConfig" runat="server" ControlToValidate="ConfigName" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator></FooterTemplate>
             </asp:TemplateField>

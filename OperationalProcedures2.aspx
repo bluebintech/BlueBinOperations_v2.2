@@ -1,10 +1,9 @@
-﻿<%@ Page Title="Operational Procedures" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="OperationalProcedures.aspx.vb" Inherits="OperationalProcedures" %>
+﻿<%@ Page Title="Operational Procedures2" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="OperationalProcedures2.aspx.vb" Inherits="OperationalProcedures2" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Operational Procedures and Documentation</h2>
-<p>Welcome to the Operational Procedures and Documentation Page for the BlueBin DMS Application.  Below is a listing of Groups of Standard Operating Procedures (SOPs), Documents, 
+<p>Welcome to the Operational Procedures and Documentation Page for BlueBin Operations.  Below is a listing of Groups of Standard Operating Procedures (SOPs), Documents, 
     and Presentations that can be used as reference for your program setup and continued improvement intitiatives.</p>
-    <p>The items below are custom for your site and can be updated using the Upload utility below.  Additional document can be added as needed.</p>
 
     <asp:Table runat="server">
  
@@ -31,10 +30,9 @@
                         </asp:TemplateField>
                          <asp:TemplateField ItemStyle-Wrap="False">
                             <ItemTemplate>
-                                <asp:Label ID = "UpdatedL" Text ='<%#"Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
+                                <asp:Label ID = "UpdatedL" Text ='<%#"Last Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
                             </ItemTemplate>
-                        </asp:TemplateField> 
-             
+                        </asp:TemplateField>                        
                     </Columns>
                     
                     <FooterStyle BackColor="#333333" ForeColor="Black" />
@@ -50,10 +48,10 @@
         </asp:TableCell>
            <asp:TableCell Width="20">  </asp:TableCell>     
             
-  <%--UploadUtility--%>          
+            
             <asp:TableCell>
-          <div class="jumbotronmini" id="UploadUtility" runat="server">
-          <asp:Table runat="server" >
+          <div class="jumbotronmini">
+          <asp:Table runat="server">
           <asp:TableRow><asp:TableCell><h1>Upload/Update Documents</h1></asp:TableCell></asp:TableRow>
         <asp:TableRow>
           <asp:TableCell>Document Group:
@@ -109,7 +107,7 @@
                         </asp:TemplateField>
                          <asp:TemplateField ItemStyle-Wrap="False">
                             <ItemTemplate>
-                                <asp:Label ID = "UpdatedL" Text ='<%#"Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
+                                <asp:Label ID = "UpdatedL" Text ='<%#"Last Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                         
@@ -150,7 +148,7 @@
                         </asp:TemplateField>
                          <asp:TemplateField ItemStyle-Wrap="False">
                             <ItemTemplate>
-                                <asp:Label ID = "UpdatedL" Text ='<%#"Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
+                                <asp:Label ID = "UpdatedL" Text ='<%#"Last Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                         
@@ -191,7 +189,7 @@
                         </asp:TemplateField>
                          <asp:TemplateField ItemStyle-Wrap="False">
                             <ItemTemplate>
-                                <asp:Label ID = "UpdatedL" Text ='<%#"Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
+                                <asp:Label ID = "UpdatedL" Text ='<%#"Last Updated: " + Eval("LastUpdated", "{0:d}").ToString()%>'  runat = "server"  DataFormatString="{0:d}"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                         

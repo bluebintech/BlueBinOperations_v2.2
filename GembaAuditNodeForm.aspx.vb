@@ -184,6 +184,7 @@ Partial Class GembaAuditNodeForm
         cmd.CommandText = "exec sp_DeleteImages '" & UserLogin & "','" & ImageSourceIDPH & "'"
         cmd.ExecuteNonQuery()
         Response.Redirect("~/Gemba")
+        con.Close()
     End Sub
 
     Protected Sub GembaAuditNodeFormSubmit_Calculate(sender As Object, e As EventArgs) Handles GembaAuditNodeFormCalculate.Click

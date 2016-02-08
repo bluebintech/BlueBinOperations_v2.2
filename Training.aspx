@@ -5,7 +5,7 @@
    
 <asp:Table ID="PageTable" runat="server" Width="500px">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
-    <p>Welcome to the Training Tracker for your BlueBin Operations Site.  </p>
+    <p>Welcome to the Training Tracker for the BlueBin DMS Application.  </p>
     <p>Below are Identified Resources who are going through training on various forms.  
         You can insert or update the status of the training using the buttons below. Each form header is a clickable link to the form itself.</p>
               </asp:TableCell></asp:TableRow>

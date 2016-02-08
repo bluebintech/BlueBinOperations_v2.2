@@ -7,7 +7,7 @@ Imports System.Web.UI.WebControls
 Imports System.IO
 
 
-Partial Public Class OperationalProcedures
+Partial Public Class OperationalProcedures2
 
     Inherits System.Web.UI.Page
     Dim UserLogin As String = Page.User.Identity.Name.ToString()
@@ -52,39 +52,6 @@ Partial Public Class OperationalProcedures
         GridViewBeltCertification.Visible = True
         GridViewOther.Visible = True
 
-        If Me.Page.User.Identity.IsAuthenticated Then
-            Dim UserLogin As String = Page.User.Identity.Name.ToString()
-            Dim UserDocUploadOther As String
-
-            Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
-
-            Using conroles As New SqlConnection(constr)
-                Using cmdadmin As New SqlCommand("sp_ValidateBlueBinRole")
-                    cmdadmin.CommandType = CommandType.StoredProcedure
-                    cmdadmin.Connection = conroles
-                    conroles.Open()
-                    'cmd.ExecuteNonQuery()
-                    'command.Parameters["@id"].Value = rowUserID
-                    'UserDocumentUplaod Utility
-                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
-                    cmdadmin.Parameters.AddWithValue("@OpName", "DOCUMENTS-UploadUtility")
-                    UserDocUploadOther = Convert.ToString(cmdadmin.ExecuteScalar())
-
-                    conroles.Close()
-                End Using
-            End Using
-
-            If UserDocUploadOther = "Yes" Then
-                UploadUtility.Visible = True
-
-            Else
-                UploadUtility.Visible = False
-
-            End If
-
-
-        End If
-
     End Sub
 
     Protected Sub DocumentInsert_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles DocumentInsert.Click
@@ -117,9 +84,8 @@ Partial Public Class OperationalProcedures
         Dim ext As String = Path.GetExtension(filename2)
 
         Dim fileName As String = Path.GetFileName(UploadDocument.PostedFile.FileName)
-        'Dim DocumentLocation As String = Server.MapPath("\")+"BlueBinDocuments\" + Customer + "\" + DocumentGroupDDL.SelectedValue.ToString() + "\" + fileName
-        Dim dr As String = "D"
-        Dim DocumentLocation As String = dr + ":\BlueBinDocuments\" + Customer + "\" + DocumentGroupDDL.SelectedValue.ToString() + "\" + fileName
+        Dim DocumentLocation As String = "C:\BlueBinDocuments\" + Customer + "\" + DocumentGroupDDL.SelectedValue.ToString() + "\" + fileName
+
 
         Select Case extension
             Case ".doc"
@@ -177,7 +143,7 @@ Partial Public Class OperationalProcedures
             End If
         End Using
 
-        UploadDocument.PostedFile.SaveAs((DocumentLocation))
+        UploadDocument.PostedFile.SaveAs(("C:\BlueBinDocuments\" + Customer + "\" + DocumentGroupDDL.SelectedValue.ToString() + "\" + fileName))
 
 
         GridViewSOPs.DataBind()
@@ -242,7 +208,7 @@ Partial Public Class OperationalProcedures
         Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
         Using con As New SqlConnection(constr)
             Using cmd As New SqlCommand()
-                cmd.CommandText = "exec sp_SelectDocumentSingle @DocumentID"
+                cmd.CommandText = "select DocumentName, Document, DocumentType from bluebin.Document where DocumentID=@DocumentID"
                 cmd.Parameters.AddWithValue("@DocumentID", id)
                 cmd.Connection = con
                 con.Open()

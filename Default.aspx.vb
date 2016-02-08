@@ -18,7 +18,9 @@ Partial Class _Default
             da.Fill(dt)
 
             Dim LogoString As String = dt.Rows(0)("ConfigValue").ToString()
-            LogoImage.ImageUrl = "~/img/" & LogoString
+            'LogoImage.ImageUrl = "~/img/" & LogoString
+            LogoImage.ImageUrl = "/BlueBinLogos/" & LogoString
+
 
             con.Close()
         End If

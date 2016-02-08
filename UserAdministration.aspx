@@ -4,7 +4,7 @@
 
 <asp:Table ID="PageTable" runat="server" Width="500px" HorizontalAlign="Center">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
-    <p>Welcome to Administration for your BlueBin Operations Site.  You can update the below User Information to Create, Update, Deactivate, or Change Information (including Passwords) on your BlueBin Application Users.</p>
+    <p>Welcome to Administration for the BlueBin DMS Application.  You can update the below User Information to Create, Update, Deactivate, or Change Information (including Passwords) on your BlueBin Application Users.</p>
     <p>
             <asp:LinkButton ID="UsersB" runat="server" class="btn btn-default">Users</asp:LinkButton>&nbsp;
             <asp:LinkButton ID="RolesB" runat="server" class="btn btn-default">Roles</asp:LinkButton>&nbsp;
@@ -238,7 +238,7 @@
                 <FooterTemplate><asp:LinkButton ID="RolesInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddRoles"  CommandName="RolesInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="ID" InsertVisible="False" SortExpression="RoleID">
+            <asp:TemplateField HeaderText="ID" InsertVisible="False" SortExpression="RoleID"  Visible="false">
                 <EditItemTemplate>
                     <asp:Label runat="server" Text='<%# Eval("RoleID") %>' ID="LabelRoleIDIT"></asp:Label>
                 </EditItemTemplate>
@@ -291,7 +291,7 @@
                 <FooterTemplate><asp:LinkButton ID="OperationsInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddOperations"  CommandName="OperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="OpID" InsertVisible="False" SortExpression="OpID">
+            <asp:TemplateField HeaderText="OpID" InsertVisible="False" SortExpression="OpID"  Visible="false">
                 <EditItemTemplate>
                     <asp:Label runat="server" Text='<%# Eval("OpID") %>' ID="LabelOpIDIT"></asp:Label>
                 </EditItemTemplate>
@@ -517,7 +517,7 @@
     <p>
         <asp:SqlDataSource runat="server" ID="RolesDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' 
             DeleteCommand="Delete from bluebin.BlueBinRoles where RoleID = @RoleID"  
-            SelectCommand="exec sp_SelectRoles" 
+            SelectCommand="exec sp_SelectRoles @Name" 
             UpdateCommand="exec sp_EditRoles @RoleID,@RoleName">
         <DeleteParameters>
             <asp:Parameter Name="RoleID" Type="Int32"></asp:Parameter>
@@ -527,13 +527,17 @@
             <asp:Parameter Name="RoleID" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="RoleName" Type="String"></asp:Parameter>  
         </UpdateParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="SearchBox" Name="Name" PropertyName="Text" DefaultValue="%"  />
+            </SelectParameters>
+
     </asp:SqlDataSource>
 
 </p>
         <p>
         <asp:SqlDataSource runat="server" ID="OperationsDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' 
             DeleteCommand="Delete from bluebin.BlueBinOperations where OpID = @OpID"  
-            SelectCommand="exec sp_SelectOperations" 
+            SelectCommand="exec sp_SelectOperations @Name" 
             UpdateCommand="exec sp_EditOperations @OpID,@OpName,@Description">
         <DeleteParameters>
             <asp:Parameter Name="OpID" Type="Int32"></asp:Parameter>
@@ -544,6 +548,10 @@
             <asp:Parameter Name="OpName" Type="String"></asp:Parameter>
             <asp:Parameter Name="Description" Type="String"></asp:Parameter>   
         </UpdateParameters>
+             <SelectParameters>
+                <asp:ControlParameter ControlID="SearchBox" Name="Name" PropertyName="Text" DefaultValue="%"  />
+            </SelectParameters>
+
     </asp:SqlDataSource>
 
 </p>
@@ -551,11 +559,14 @@
                 <p>
         <asp:SqlDataSource runat="server" ID="RoleOperationsDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' 
             DeleteCommand="Delete from bluebin.BlueBinRoleOperations where RoleID = @RoleID and OpID = @OpID"  
-            SelectCommand="exec sp_SelectRoleOperations" >
+            SelectCommand="exec sp_SelectRoleOperations @Name" >
         <DeleteParameters>
             <asp:Parameter Name="RoleID" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="OpID" Type="Int32"></asp:Parameter>
         </DeleteParameters>
+             <SelectParameters>
+                <asp:ControlParameter ControlID="SearchBox" Name="Name" PropertyName="Text" DefaultValue="%"  />
+            </SelectParameters>
     </asp:SqlDataSource>
 
 </p>

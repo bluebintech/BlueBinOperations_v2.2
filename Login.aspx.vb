@@ -40,7 +40,8 @@ Partial Public Class Login
             da2.Fill(dt2)
 
             Dim LogoString As String = dt2.Rows(0)("ConfigValue").ToString()
-            LogoImage.ImageUrl = "~/img/" & LogoString
+            'LogoImage.ImageUrl = "~/img/" & LogoString
+            LogoImage.ImageUrl = "/BlueBinLogos/" & LogoString
 
             con2.Close()
 

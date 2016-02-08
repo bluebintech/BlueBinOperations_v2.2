@@ -68,7 +68,7 @@
             <asp:TableRow>    
                 <asp:TableCell>
                     <asp:Label ID="QCNType" runat="server" Text="QCN Type"></asp:Label>
-        <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorQCNType" ControlToValidate="QCNTypeDD" runat="server" ForeColor="Red"  ErrorMessage=" Required" Font-Size="X-Small"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorQCNType" ControlToValidate="QCNTypeDD" runat="server" ForeColor="Red"  ErrorMessage="Required" Font-Size="X-Small"></asp:RequiredFieldValidator>
 
                 </asp:TableCell><asp:TableCell>
                     <asp:DropDownList ID="QCNTypeDD"  AppendDataBoundItems="true" runat="server" DataSourceID="QCNTypeSource" DataTextField="Name" DataValueField="Name">
