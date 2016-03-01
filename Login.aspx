@@ -46,7 +46,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="" runat="server" class="navbar-brand" onClick="switchView('Home')">&nbsp;<asp:Image style="display:inline;" ID="Image1" runat="server" Height="20px" ImageUrl="~/img/BlueBin_icon.png" Width="20px" />&nbsp;BlueBin Operations</a>
+                    <a href="" runat="server" class="navbar-brand" onClick="switchView('Home')">&nbsp;<asp:Image style="display:inline;" ID="Image1" runat="server" Height="20px" ImageUrl="~/img/BlueBin_icon.png" Width="20px" />&nbsp;BlueBin DMS Application Login</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -62,7 +62,7 @@
 <div class="container body-content">
     <br />
     <asp:Image id="LogoImage" runat="server"></asp:Image> <br />
-<h2>BlueBin Login</h2>
+
 
     <div class="row">
         <div class="col-md-8">

@@ -314,79 +314,7 @@
              </asp:TableRow>
                 <asp:TableRow Height="10"></asp:TableRow>   
 
- <%-- Stage Standards --%>   
 
-            <asp:TableRow Width="850px" BackColor="#333333" Height="15">    
-
-                <asp:TableCell Width ="250">
-                    &nbsp;<asp:Label runat ="server" ForeColor="White" Font-Bold="True" ToolTip="How does the Staging Area Look?">STAGE STANDARDS</asp:Label></asp:TableCell>
-                <asp:TableCell Width ="250"></asp:TableCell>
-                 </asp:TableRow>
-                <asp:TableRow Height="5"></asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label13" runat="server" Text="Stage area properly supplied"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                    <asp:RadioButtonList id=SS_SuppliedRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
-                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
-                            <asp:ListItem Value="5">100%</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label30" runat="server" Text="Kanbans properly positioned"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                    <asp:RadioButtonList id=SS_KanbansPPRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
-                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
-                            <asp:ListItem Value="5">100%</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label31" runat="server" Text="Same day Stockouts pulled & tagged"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                    <asp:RadioButtonList id=SS_StockoutsPTRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
-                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
-                            <asp:ListItem Value="5">100%</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label32" runat="server" Text="Cone placed tags match node code"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                    <asp:RadioButtonList id=SS_StockoutsMatchRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
-                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
-                            <asp:ListItem Value="5">100%</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label33" runat="server" Text="Huddle Board reflects Cone Status"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                    <asp:RadioButtonList id=SS_HuddleBoardMatchRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
-                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
-                            <asp:ListItem Value="5">100%</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </asp:TableCell>
-                </asp:TableRow>
-                
-                <asp:TableRow Height="10"></asp:TableRow>  
-            <asp:TableRow>
-                    <asp:TableCell>&nbsp;<asp:Label ID="Label34" runat="server" Text="Comments"></asp:Label></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Table runat="server" Cellspacing="10"><asp:TableRow>
-                            <asp:TableCell>
-                                <asp:TextBox ID="SS_CommentsTB" runat="server" Height="75px" Width="300px" TextMode="MultiLine"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                &nbsp;Image Name:&nbsp;&nbsp;<asp:TextBox ID="ImageNameSSTB" runat="server"  Width="160px" />
-                                <asp:FileUpload ID="UploadedPicSS" runat="server"  Visible="True" BorderWidth="4" BorderColor="#eeeeee" />
-                                &nbsp;<asp:Button ID="picInsertSS" class="btn btn-primary btn-sm" runat="server" Text="Attach Image" OnClientClick="picInsertSS_Click" CausesValidation="False"></asp:Button>
-                                
-                            </asp:TableCell>
-                        </asp:TableRow></asp:Table>
-                    </asp:TableCell>
-             </asp:TableRow>
-                <asp:TableRow Height="10"></asp:TableRow>   
 
 <%-- Node Integrity Standards --%>   
 
@@ -463,7 +391,79 @@
                     </asp:TableCell>
              </asp:TableRow>
                 <asp:TableRow Height="10"></asp:TableRow>   
+ <%-- Stage Standards --%>   
 
+            <asp:TableRow Width="850px" BackColor="#333333" Height="15">    
+
+                <asp:TableCell Width ="250">
+                    &nbsp;<asp:Label runat ="server" ForeColor="White" Font-Bold="True" ToolTip="How does the Staging Area Look?">STAGE STANDARDS</asp:Label></asp:TableCell>
+                <asp:TableCell Width ="250"></asp:TableCell>
+                 </asp:TableRow>
+                <asp:TableRow Height="5"></asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label13" runat="server" Text="Stage area properly supplied"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                    <asp:RadioButtonList id=SS_SuppliedRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
+                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
+                            <asp:ListItem Value="5">100%</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label30" runat="server" Text="Kanbans properly positioned"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                    <asp:RadioButtonList id=SS_KanbansPPRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
+                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
+                            <asp:ListItem Value="5">100%</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label31" runat="server" Text="Same day Stockouts pulled & tagged"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                    <asp:RadioButtonList id=SS_StockoutsPTRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
+                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
+                            <asp:ListItem Value="5">100%</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label32" runat="server" Text="Cone placed tags match node cone"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                    <asp:RadioButtonList id=SS_StockoutsMatchRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
+                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
+                            <asp:ListItem Value="5">100%</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label33" runat="server" Text="Huddle Board reflects Cone Status"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                    <asp:RadioButtonList id=SS_HuddleBoardMatchRL runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="fixWidth18" RepeatColumns="3">
+                            <asp:ListItem Value="0" Selected="True">< 100%</asp:ListItem>
+                            <asp:ListItem Value="5">100%</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                
+                <asp:TableRow Height="10"></asp:TableRow>  
+            <asp:TableRow>
+                    <asp:TableCell>&nbsp;<asp:Label ID="Label34" runat="server" Text="Comments"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Table runat="server" Cellspacing="10"><asp:TableRow>
+                            <asp:TableCell>
+                                <asp:TextBox ID="SS_CommentsTB" runat="server" Height="75px" Width="300px" TextMode="MultiLine"></asp:TextBox>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                &nbsp;Image Name:&nbsp;&nbsp;<asp:TextBox ID="ImageNameSSTB" runat="server"  Width="160px" />
+                                <asp:FileUpload ID="UploadedPicSS" runat="server"  Visible="True" BorderWidth="4" BorderColor="#eeeeee" />
+                                &nbsp;<asp:Button ID="picInsertSS" class="btn btn-primary btn-sm" runat="server" Text="Attach Image" OnClientClick="picInsertSS_Click" CausesValidation="False"></asp:Button>
+                                
+                            </asp:TableCell>
+                        </asp:TableRow></asp:Table>
+                    </asp:TableCell>
+             </asp:TableRow>
+                <asp:TableRow Height="10"></asp:TableRow>   
         </asp:Table>
 
 

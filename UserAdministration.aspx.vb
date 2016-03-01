@@ -204,7 +204,7 @@ Partial Class UserAdministration
                                     </head>
                                     <body>
                                     <b>Date:</b> " & DateTime.Now.ToString("MM/dd/yyyy") &
-                                    "<br /><br /><b>BlueBin Site:</b> http://dashboard.bluebin.com/" & SiteAddress &
+                                    "<br /><br /><b>BlueBin Site:</b> https://dms.bluebin.com/" & SiteAddress &
                                     "<br /><br />Hello " & txtFirstName.Text & " " & txtLastName.Text & "," &
                                     "<br /><br />You are receiving this email as the result of a New Account created for you at your BlueBin.com site.  
                                     <br /><br />Your new account information is below. Please enter your Password at the Login screen and you will be prompted to change the password to a new one on successful entry.

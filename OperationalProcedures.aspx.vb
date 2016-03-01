@@ -198,23 +198,28 @@ Partial Public Class OperationalProcedures
         Dim fileName As String, filePath As String, contentType As String
 
         Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
-        Using con As New SqlConnection(constr)
-            Using cmd As New SqlCommand()
-                cmd.CommandText = "exec sp_SelectDocumentSingle @DocumentID"
-                cmd.Parameters.AddWithValue("@DocumentID", id)
-                cmd.Connection = con
-                con.Open()
-                Using sdr As SqlDataReader = cmd.ExecuteReader()
-                    sdr.Read()
-                    filePath = sdr("Document").ToString()
-                    contentType = sdr("DocumentType").ToString()
-                    fileName = sdr("DocumentName").ToString()
+        If id > 0 Then
+
+            Using con As New SqlConnection(constr)
+                Using cmd As New SqlCommand()
+                    cmd.CommandText = "exec sp_SelectDocumentSingle @DocumentID"
+                    cmd.Parameters.AddWithValue("@DocumentID", id)
+                    cmd.Connection = con
+                    con.Open()
+                    Using sdr As SqlDataReader = cmd.ExecuteReader()
+                        sdr.Read()
+                        filePath = sdr("Document").ToString()
+                        contentType = sdr("DocumentType").ToString()
+                        fileName = sdr("DocumentName").ToString()
+                    End Using
+                    con.Close()
                 End Using
-                con.Close()
             End Using
-        End Using
+        Else
+            filePath = "\false"
+        End If
         Dim fileInfo As New FileInfo(filePath)
-        If fileInfo.Exists Then
+        If fileInfo.Exists Or filePath <> "\false" Then
             Try
                 Response.ContentType = contentType
                 Response.AppendHeader("Content-Disposition", ("attachment; filename=" + Path.GetFileName(filePath)))

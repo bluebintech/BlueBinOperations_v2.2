@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <asp:Image id="LogoImage" runat="server"></asp:Image>
         <h1>BlueBin DMS Application</h1>
-         <p class="lead">Hello&nbsp;<asp:LoginName ID="LoginName2" runat="server" Font-Bold = "true" /> and welcome to the BlueBin DMS App (Daily Management System Application) for your Facility!&nbsp; Please click below to learn more about the setup of this application and for other documentation.</p>
+         <p class="lead">Hello&nbsp;<asp:LoginName ID="LoginName2" runat="server" Font-Bold = "true" /> and welcome to the BlueBin Daily Management System (DMS) Application for your Facility!&nbsp; Please click below to learn more about the setup of this application and for other documentation.</p>
         <p><a href="~/LearnAbout"  runat="server" class="btn btn-primary btn-lg">Learn About&raquo;</a> <a href="~/Contact"  runat="server" class="btn btn-primary btn-lg">Contact &raquo;</a></p>
     </div>
 

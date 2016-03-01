@@ -22,7 +22,7 @@ Public Class Dashboard
         da.Fill(dt)
 
         Dim TableaURLDB As String = dt.Rows(0)("ConfigValue").ToString()
-        TableauFullURL = "https://10ay.online.tableau.com/t" & TableaURLDB & "Home"
+        TableauFullURL = "https://10ay.online.tableau.com/#/site" & TableaURLDB & "Home"
 
         con.Close()
 

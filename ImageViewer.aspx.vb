@@ -2,6 +2,9 @@
 Imports System.Configuration
 Imports System.Data.SqlClient
 Imports System.Web.Security
+Imports System.ComponentModel
+Imports System.Drawing
+Imports System.IO
 
 Partial Public Class ImageViewer
     Inherits Page
@@ -21,12 +24,16 @@ Partial Public Class ImageViewer
             If myReader.Read Then
                 Response.ContentType = myReader("ImageType").ToString()
                 Response.BinaryWrite(myReader("Image"))
+                'myReader.Attributes.Add("OnClick", "window.close();")
             End If
 
             myReader.Close()
             myConnection.Close()
         End Using
     End Sub
+
+
+
 End Class
 
 

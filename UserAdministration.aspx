@@ -2,7 +2,7 @@
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Table ID="PageTable" runat="server" Width="500px" HorizontalAlign="Center">
+<asp:Table ID="PageTable" runat="server" HorizontalAlign="Center">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
     <p>Welcome to Administration for the BlueBin DMS Application.  You can update the below User Information to Create, Update, Deactivate, or Change Information (including Passwords) on your BlueBin Application Users.</p>
     <p>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Image Viewer - BlueBin DMS App" Language="VB" AutoEventWireup="true" CodeFile="ImageViewer.aspx.vb" Inherits="ImageViewer" %>
+﻿<%@ Page Title="Image Viewer - BlueBin DMS App" AutoEventWireup="true" Language="VB" CodeFile="ImageViewer.aspx.vb" Inherits="ImageViewer" %>
 
 <!DOCTYPE html>
 
@@ -13,6 +13,7 @@
 
     <body>
 
+ 
     </body>
 
 </html>

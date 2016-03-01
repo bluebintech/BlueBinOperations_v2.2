@@ -8,15 +8,15 @@ Partial Class Scans
         'If Not Page.IsPostBack() Then
         'Comment
 
-        Dim SqlDataSourceScan As New SqlDataSource()
-            SqlDataSourceScan.ID = "Site_ConnectionString"
-            Me.Page.Controls.Add(SqlDataSourceScan)
-            SqlDataSourceScan.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
-            SqlDataSourceScan.SelectCommand =
-                "exec sp_SelectScanBatch"
-            GridViewScan.DataSource = SqlDataSourceScan
+        'Dim SqlDataSourceScan As New SqlDataSource()
+        'SqlDataSourceScan.ID = "Site_ConnectionString"
+        'Me.Page.Controls.Add(SqlDataSourceScan)
+        'SqlDataSourceScan.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
+        'SqlDataSourceScan.SelectCommand =
+        '"exec sp_SelectScanBatch"
+        'GridViewScan.DataSource = SqlDataSourceScan
 
-            GridViewScan.DataBind()
+        GridViewScan.DataBind()
             GridViewScanLines.DataBind()
         'End If
     End Sub

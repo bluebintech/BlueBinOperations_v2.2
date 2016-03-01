@@ -62,6 +62,8 @@ Partial Public Class SiteMaster
             Dim MENUHardware As String
             Dim MENUScanning As String
             Dim MENUOther As String
+            Dim UserADMINPARMASTER As String
+            Dim MENUADMINPARMASTER As String
 
             Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
             Using conroles As New SqlConnection(constr)
@@ -90,6 +92,11 @@ Partial Public Class SiteMaster
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
                     cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-RESOURCES")
                     UserADMINRESOURCES = Convert.ToString(cmdadmin.ExecuteScalar())
+                    cmdadmin.Parameters.Clear()
+                    'ADMIN-PARMASTER
+                    cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    cmdadmin.Parameters.AddWithValue("@OpName", "ADMIN-PARMASTER")
+                    UserADMINPARMASTER = Convert.ToString(cmdadmin.ExecuteScalar())
                     cmdadmin.Parameters.Clear()
                     'ADMIN-TRAINING
                     cmdadmin.Parameters.AddWithValue("@UserLogin", UserLogin)
@@ -160,6 +167,10 @@ Partial Public Class SiteMaster
                     'MENU-Dashboard
                     cmdmenu.Parameters.AddWithValue("@ConfigName", "MENU-Dashboard")
                     MENUDashboard = Convert.ToString(cmdmenu.ExecuteScalar())
+                    cmdmenu.Parameters.Clear()
+                    'MenuAdmin-PARMASTER
+                    cmdmenu.Parameters.AddWithValue("@ConfigName", "ADMIN-PARMASTER")
+                    MENUADMINPARMASTER = Convert.ToString(cmdmenu.ExecuteScalar())
                     cmdmenu.Parameters.Clear()
                     'MENU-Dashboard-SupplyChain
                     cmdmenu.Parameters.AddWithValue("@ConfigName", "MENU-Dashboard-SupplyChain")
@@ -292,7 +303,12 @@ Partial Public Class SiteMaster
             Else
                 OtherDD.Visible = True
             End If
-
+            'Main Menus
+            If MENUADMINPARMASTER = "No" Or UserADMINPARMASTER = "No" Then
+                ADMINPARMASTERDD.Visible = False
+            Else
+                ADMINPARMASTERDD.Visible = True
+            End If
 
         End If
     End Sub

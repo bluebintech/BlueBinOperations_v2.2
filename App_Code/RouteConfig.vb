@@ -7,6 +7,7 @@ Public Module RouteConfig
     Public Sub RegisterRoutes(routes As RouteCollection)
         Dim settings = New FriendlyUrlSettings()
         settings.AutoRedirectMode = RedirectMode.Permanent
-        routes.EnableFriendlyUrls(settings)
+        'routes.EnableFriendlyUrls(settings)
+        routes.EnableFriendlyUrls()
     End Sub
 End Module

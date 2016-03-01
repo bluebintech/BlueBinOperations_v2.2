@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
    
-<asp:Table ID="PageTable" runat="server" Width="500px" align = "center">
+<asp:Table ID="PageTable" runat="server">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
     <p>Welcome to the Resource Information for the BlueBin DMS Application.  </p>
     <p>In your Gemba Audit Forms the below Resources will be available as potential Auditers and Techs.  

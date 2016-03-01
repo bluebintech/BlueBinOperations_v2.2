@@ -2,7 +2,7 @@
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Table ID="PageTable" runat="server" Width="500px" HorizontalAlign="Center">
+<asp:Table ID="PageTable" runat="server">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
     <p>Welcome to Site Configuration for the BlueBin DMS Application.  You can update the below configurations to change the contect of your site.</p>
     <p>
