@@ -46,7 +46,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="" runat="server" class="navbar-brand" onClick="switchView('Home')">&nbsp;<asp:Image style="display:inline;" ID="Image1" runat="server" Height="20px" ImageUrl="~/img/BlueBin_icon.png" Width="20px" />&nbsp;BlueBin DMS Application Login</a>
+                    <a href="" runat="server" class="navbar-brand" onClick="switchView('Home')">&nbsp;<asp:Image style="display:inline;" ID="Image1" runat="server" Height="20px" ImageUrl="~/img/BlueBin_icon.png" Width="20px" />&nbsp;BlueBin DMS Login</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -147,10 +147,16 @@
                                                         <asp:TextBox runat="server" ID="ForgotPasswordTB"></asp:TextBox>
                                                     
                                                     </asp:TableCell>
+                                                <asp:TableCell ForeColor="Red">
+                                                    <asp:Label ID="InvalidLoginL" runat="server" Text=""></asp:Label></asp:TableCell>
                                                 </asp:TableRow>
+                                <asp:TableRow Height="10px"></asp:TableRow>
                                                     <asp:TableRow>
                                                 <asp:TableCell>
-                                                    <asp:Button runat="server" Text="Submit" class="btn btn-default" ID="ForgotPasswordB" OnClientClick="return confirm('Please Check Your email for New Temporary Password');"></asp:Button>
+                                                    <asp:Button runat="server" Text="Submit" class="btn btn-default" ID="ForgotPasswordB" OnClientClick="return confirm('If you receive no errors, please Check Your email for New Temporary Password');"></asp:Button>
+                                                </asp:TableCell>
+                                                       <asp:TableCell>
+                                                    <asp:Button ID="CancelForgotB" runat="server"  class="btn btn-default" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                                                 </asp:TableCell>
                                             </asp:TableRow>
                                                     </asp:Table>                    

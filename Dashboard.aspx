@@ -10,6 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -55,7 +56,7 @@
                             <li><a href="#" onClick="switchView('Supply Spend')">Supply Spend</a></li>
                             <li><a href="#" onClick="switchView('Stat Calls')">Stat Calls</a></li>
                             <li><a href="#" onClick="switchView('Warehouse Value')">Warehouse Volume</a></li>
-                            <li><a href="#" onClick="switchView('Warehouse Detail')">Warehouse Detail</a></li>
+                            <li><a href="#" onClick="switchView('Warehouse Size')">Warehouse Detail</a></li>
                             <li><a href="#" onClick="switchView('Pick Line Volume')">Pick Line Volume</a></li>
                             <li><a href="#" onClick="switchView('Overall Line Volume')">Overall Line Volume</a></li>
                             <li class="divider"></li>

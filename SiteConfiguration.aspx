@@ -23,10 +23,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditConfig" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditConfig" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="ConfigInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddConfig"  CommandName="ConfigInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -128,10 +128,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditQCNType" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditQCNType" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="QCNTypeInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddQCNType"  CommandName="QCNTypeInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -196,10 +196,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditStatus" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditStatus" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="QCNStatusInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddStatus" CommandName="QCNStatusInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>

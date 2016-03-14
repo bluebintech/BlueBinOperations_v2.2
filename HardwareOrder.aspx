@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Hardware Order" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="HardwareOrder.aspx.vb" Inherits="HardwareOrder" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- <asp:Table ID="PageTable" runat="server" Width="900px" align = "center">
+ <asp:Table ID="PageTable" runat="server" Width="900px">
 <asp:TableRow><asp:TableCell><h2><%: Page.Title %></h2></asp:TableCell></asp:TableRow>
 <asp:TableRow>
 <asp:TableCell Width="900px">  

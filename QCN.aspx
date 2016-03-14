@@ -42,7 +42,7 @@
 
     <asp:panel runat ="server">    
 
-<asp:Table ID="PageTable" runat="server" Width="1000px" align = "center">
+<asp:Table ID="PageTable" runat="server" Width="1000px" >
 <asp:TableRow><asp:TableCell><h2>QCN Status</h2></asp:TableCell></asp:TableRow>
 <asp:TableRow>
 <asp:TableCell Width="1000px">    
@@ -69,7 +69,7 @@
 
 
     <p>
-    <asp:GridView  CssClass="GridViewitem" ID="GridViewQCN"   OnPageIndexChanging="OnPageIndexChanging" OnRowDataBound="OnRowDataBound" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="QCNDatasource" GridLines="Vertical" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="QCNID" PageSize="30">
+    <asp:GridView  CssClass="GridViewitem" ID="GridViewQCN" ButtonType="Button"  OnPageIndexChanging="OnPageIndexChanging" OnRowDataBound="OnRowDataBound" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="QCNDatasource" GridLines="Vertical" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="QCNID" PageSize="30">
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:HyperLinkField DataNavigateUrlFields="QCNID" DataNavigateUrlFormatString="QCNFormEdit.aspx?QCNID={0}" Text="Edit"></asp:HyperLinkField>
@@ -95,9 +95,9 @@
             <asp:BoundField DataField="ItemManufacturer" HeaderText="Manuf" SortExpression="ItemManufacturer"  Visible="False"/>
             <asp:BoundField DataField="ItemManufacturerNumber" HeaderText="Manuf#"  Visible="False" SortExpression="ItemManufacturerNumber" />
             <asp:BoundField DataField="DetailsText" HeaderText="DetailsText" SortExpression="DetailsText"  Visible="False"/>
-            <asp:BoundField DataField="Details" HeaderText="Details" SortExpression="Details" />
+            <asp:BoundField DataField="Details" HeaderText="Details" SortExpression="Details"  Visible="False"/>
             <asp:BoundField DataField="UpdatesText" HeaderText="UpdatesText" SortExpression="UpdatesText"  Visible="False"/>
-            <asp:BoundField DataField="Updates" HeaderText="Updates" SortExpression="Updates" />
+            <asp:BoundField DataField="Updates" HeaderText="Updates" SortExpression="Updates"  Visible="False"/>
             <asp:BoundField DataField="DateEntered" HeaderText="Date Entered" SortExpression="DateEntered" DataFormatString="{0:d}"/>
             <asp:BoundField DataField="LastUpdated" HeaderText="Last Updated" SortExpression="LastUpdated" DataFormatString="{0:d}"/>
             <asp:BoundField DataField="DaysOpen" HeaderText="Days Open" SortExpression="DaysOpen" />

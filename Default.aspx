@@ -5,12 +5,13 @@
     <div class="jumbotron">
         <asp:Image id="LogoImage" runat="server"></asp:Image>
         <h1>BlueBin DMS Application</h1>
-         <p class="lead">Hello&nbsp;<asp:LoginName ID="LoginName2" runat="server" Font-Bold = "true" /> and welcome to the BlueBin Daily Management System (DMS) Application for your Facility!&nbsp; Please click below to learn more about the setup of this application and for other documentation.</p>
+         <p class="lead">Hello <asp:Label ID="UserNameLabel" runat="server" Font-Bold="True"></asp:Label>, and welcome to the BlueBin Daily Management System (DMS) Application for <asp:Label ID="FacilityNameLabel" runat="server"></asp:Label>!&nbsp; Please click below to learn more about the setup of this application and for other documentation.</p>
         <p><a href="~/LearnAbout"  runat="server" class="btn btn-primary btn-lg">Learn About&raquo;</a> <a href="~/Contact"  runat="server" class="btn btn-primary btn-lg">Contact &raquo;</a></p>
     </div>
-
+    <%--&nbsp;(<asp:LoginName ID="LoginN3ame2" runat="server"  />)--%>
+    <%--<asp:Label ID="FacilityNameLabel" runat="server"></asp:Label>--%>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" id ="dashboarddiv" runat="server">
             
             <h2>BlueBin Dashboard</h2>
             <p>
@@ -24,7 +25,7 @@
         <div class="col-md-4" id="qcndiv" runat="server">
             <h2>QCN</h2>
             <p>
-                You can easily create, track, and store QCNs in this easy to use module.</p>
+                "The Voice of the Customer". You can easily create, track, and store QCNs in this easy to use module.</p>
             <p>
                 <a class="btn btn-default" runat="server" href="~/QCN">Click Here &raquo;</a>
             </p>

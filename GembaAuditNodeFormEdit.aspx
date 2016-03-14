@@ -2,10 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Table ID="PageTable" runat="server" Width="1250px"  Height ="800px" align = "center">
+<asp:Table ID="PageTable" runat="server" Width="1250px"  Height ="1000px">
 <asp:TableRow><asp:TableCell><h2>Gemba Audit - Edit</h2></asp:TableCell><asp:TableCell></asp:TableCell></asp:TableRow>
 <asp:TableRow>
-<asp:TableCell Width="400px" Height="1000px" BorderColor="#666666" BorderStyle="Solid" BorderWidth="1">
+<asp:TableCell Width="400px" BorderColor="#666666" BorderStyle="Solid" BorderWidth="1">
 
 <%-- ***************--%> 
   <%-- AUDIT LEFT SIDE--%>  
@@ -126,7 +126,7 @@
 <%-- ***************--%> 
   <%-- AUDIT RIGHT SIDE--%>  
 <%-- ***************--%>    
-     <asp:TableCell Width="850px" Height ="1000px" BorderColor="#666666" BorderStyle="Solid" BorderWidth="1">
+     <asp:TableCell Width="850px" BorderColor="#666666" BorderStyle="Solid" BorderWidth="1">
 
         
         <asp:Table ID="Table2" runat="server" CellPadding="0" Width="850px"  Height ="1000px" CellSpacing="0"  BorderWidth="10" BorderColor="#eeeeee" BackColor="#eeeeee">
@@ -535,7 +535,7 @@
         
         
         
-        <br />&nbsp;&nbsp; <br /><br /><br /><br /><br /><asp:SqlDataSource ID="GembaAuditNodeFormLocationSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT LocationID,LocationName FROM [bluebin].[DimLocation]"></asp:SqlDataSource>      
+        <br />&nbsp;&nbsp; <br /><br /><br /><br /><br /><asp:SqlDataSource ID="GembaAuditNodeFormLocationSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="exec sp_SelectLocation"></asp:SqlDataSource>      
         <asp:SqlDataSource ID="GembaAuditNodeFormShadowResourceSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="exec sp_SelectGembaShadow"></asp:SqlDataSource>
         
 

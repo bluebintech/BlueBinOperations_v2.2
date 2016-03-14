@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Gemba" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Gemba.aspx.vb" Inherits="Gemba" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- <asp:Table ID="PageTable" runat="server" Width="900px" align = "center">
+ <asp:Table ID="PageTable" runat="server" Width="900px" >
 
 
 

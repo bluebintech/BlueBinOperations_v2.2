@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:panel runat ="server">
-<asp:Table ID="PageTable" runat="server" Width="500px" align = "center">
+<asp:Table ID="PageTable" runat="server" Width="500px">
 <asp:TableRow><asp:TableCell><h2>New Hardware Order Form</h2></asp:TableCell></asp:TableRow>
 <asp:TableRow>
     <asp:TableCell Width="500px"  BorderColor="#032169" BorderStyle="Solid" BorderWidth="1">

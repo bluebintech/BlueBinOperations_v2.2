@@ -2,7 +2,7 @@
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Table ID="PageTable" runat="server" HorizontalAlign="Center">
+<asp:Table ID="PageTable" runat="server" HorizontalAlign="Left">
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
     <p>Welcome to Administration for the BlueBin DMS Application.  You can update the below User Information to Create, Update, Deactivate, or Change Information (including Passwords) on your BlueBin Application Users.</p>
     <p>
@@ -37,10 +37,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditUsers" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditUsers" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="Button1"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="UsersInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddUsers"  CommandName="UsersInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -230,10 +230,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditRoles" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditRoles" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="ITRolesB"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="ITRolesB"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="RolesInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddRoles"  CommandName="RolesInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -283,10 +283,10 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
-                    <asp:Button runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditOperations" ID="Button1"></asp:Button>&nbsp;<asp:Button runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ValidationGroup="EditOperations" ID="Button1"></asp:LinkButton><br /><asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="Button2"></asp:LinkButton>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="ITOperationsB"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="ITOperationsB"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="OperationsInsert" runat="server" Text="Add" CausesValidation="True" ValidationGroup="AddOperations"  CommandName="OperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -348,7 +348,7 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITRoleOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITRoleOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="RoleOperationsInsert" runat="server" Text="Add"  CommandName="RoleOperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -416,7 +416,7 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:Button runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITUserOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:Button>
+                    <asp:LinkButton runat="server" Text="Delete" CommandName="Delete" CausesValidation="False" ID="ITUserOperationsB" OnClientClick="return confirm('Are you sure you want to delete this entry?');"></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate><asp:LinkButton ID="UserOperationsInsert" runat="server" Text="Add"  CommandName="UserOperationsInsert"></asp:LinkButton></FooterTemplate>
             </asp:TemplateField>
@@ -475,12 +475,17 @@
  
      
 </asp:TableCell></asp:TableRow>
+<asp:TableRow><asp:TableCell>
+    <asp:ImageButton ID="ExportUsers" runat="Server" ImageUrl="~/img/ExportExcel.gif" OnClick="ExportToExcelUsers" Height="25px" CausesValidation="False" />
+
+</asp:TableCell></asp:TableRow>
+
+    <asp:TableRow Height ="20"></asp:TableRow>
 
 
 
     </asp:Table>
     
-<p><asp:ImageButton ID="ExportUsers" runat="Server" ImageUrl="~/img/ExportExcel.gif" OnClick="ExportToExcelUsers" Height="25px" CausesValidation="False" /></p>
 <p>
         <asp:SqlDataSource runat="server" ID="UsersDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' 
             DeleteCommand="Delete from bluebin.BlueBinUser where BlueBinUserID = @BlueBinUserID and UserLogin = @UserLogin" 

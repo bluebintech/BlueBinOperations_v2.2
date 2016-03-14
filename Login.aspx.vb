@@ -136,6 +136,15 @@ Partial Public Class Login
 
     End Sub
 
+    Protected Sub CancelForgotB_Click(sender As Object, e As EventArgs) Handles CancelForgotB.Click
+        Response.Redirect("~/Login")
+        Login1.Visible = True
+        ForgotPasswordLinkTable.Visible = True
+        ForgotPasswordTable.Visible = False
+        ChangePassword1.Visible = False
+
+    End Sub
+
     Protected Sub ForgotPasswordB_Click(sender As System.Object, e As System.EventArgs) Handles ForgotPasswordB.Click
         Dim UserLogin As String = ForgotPasswordTB.Text
         Dim NewPWD As String
@@ -151,6 +160,11 @@ Partial Public Class Login
                 con.Close()
             End Using
         End Using
+
+        If NewPWD = "" Then
+            InvalidLoginL.Text = "Invalid Login, Please enter a valid Login"
+            GoTo EndofSub
+        End If
 
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("BlueBinTrac@gmail.com", "BBT2015!")
@@ -224,6 +238,7 @@ Partial Public Class Login
         ForgotPasswordLinkTable.Visible = True
         ForgotPasswordTable.Visible = False
         ChangePassword1.Visible = False
+EndofSub:
     End Sub
 
 End Class

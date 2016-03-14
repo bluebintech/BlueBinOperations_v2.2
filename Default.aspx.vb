@@ -21,13 +21,34 @@ Partial Class _Default
             'LogoImage.ImageUrl = "~/img/" & LogoString
             LogoImage.ImageUrl = "/BlueBinLogos/" & LogoString
 
-
             con.Close()
+
+            Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
+            Using conUser As New SqlConnection(constr)
+                Using cmdUser As New SqlCommand("sp_SelectUserName")
+                    cmdUser.CommandType = CommandType.StoredProcedure
+                    cmdUser.Connection = conUser
+                    conUser.Open()
+                    cmdUser.Parameters.AddWithValue("@UserLogin", UserLogin)
+                    UserNameLabel.Text = Convert.ToString(cmdUser.ExecuteScalar())
+                    conUser.Close()
+                End Using
+            End Using
+            Using conFacilityName As New SqlConnection(constr)
+                Using cmdFacilityName As New SqlCommand("sp_SelectFacilityName")
+                    cmdFacilityName.CommandType = CommandType.StoredProcedure
+                    cmdFacilityName.Connection = conFacilityName
+                    conFacilityName.Open()
+                    FacilityNameLabel.Text = Convert.ToString(cmdFacilityName.ExecuteScalar())
+                    conFacilityName.Close()
+                End Using
+            End Using
         End If
 
 
         If Me.Page.User.Identity.IsAuthenticated Then
-            Dim UserLogin As String = Page.User.Identity.Name.ToString()
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
             Dim UserADMINMENU As String
             Dim UserADMINCONFIG As String
             Dim UserADMINUSERS As String
@@ -215,6 +236,12 @@ Partial Class _Default
                 hardwarediv.Visible = False
             Else
                 hardwarediv.Visible = True
+            End If
+
+            If MENUDashboard = "No" Or UserMENUDashboard = "No" Then
+                dashboarddiv.Visible = False
+            Else
+                dashboarddiv.Visible = True
             End If
 
         End If

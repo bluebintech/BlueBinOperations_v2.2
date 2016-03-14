@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Table ID="PageTable" runat="server" Width="1250px"  Height ="1000px" align = "center">
+<asp:Table ID="PageTable" runat="server" Width="1250px"  Height ="1000px">
 <asp:TableRow><asp:TableCell><h2>Gemba Audit - New</h2></asp:TableCell><asp:TableCell></asp:TableCell></asp:TableRow>
 <asp:TableRow>
 <asp:TableCell Width="400px" BorderColor="#666666"  BackColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1">

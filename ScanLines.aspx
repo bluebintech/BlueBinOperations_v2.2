@@ -21,7 +21,7 @@
         }
     </script>
     <asp:panel runat ="server">
-<asp:Table ID="PageTable" runat="server" Width="1050px" align = "center">
+<asp:Table ID="PageTable" runat="server" Width="1050px" >
 <asp:TableRow><asp:TableCell><h2>New Item Scan</h2></asp:TableCell></asp:TableRow>
 <asp:TableRow>
     <asp:TableCell Width="1050px"  BorderColor="#032169" BorderStyle="Solid" BorderWidth="1" BackColor="#eeeeee">
