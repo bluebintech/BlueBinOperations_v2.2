@@ -151,16 +151,12 @@
         </asp:Table>
 
     
-    <br />&nbsp;&nbsp; <br /><br /><br /><br /><br /><asp:SqlDataSource ID="LocationSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT LocationID,LocationName FROM [bluebin].[DimLocation] where BlueBinFlag = 1"></asp:SqlDataSource>      
+    <br />&nbsp;&nbsp; <br /><br /><br /><br /><br /><asp:SqlDataSource ID="LocationSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="exec sp_SelectLocation"></asp:SqlDataSource>      
         <asp:SqlDataSource ID="QCNTypeSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT DISTINCT [Name] FROM [qcn].[QCNType]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="AssignedUserSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT LastName + ', ' + FirstName + ' (' + Login + ')' as AssignedFullName FROM [bluebin].[BlueBinResource]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="RequesterUserSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT LastName + ', ' + FirstName + ' (' + Login + ')' as RequesterFullName FROM [bluebin].[BlueBinResource]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="QCNStatusSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="SELECT DISTINCT [Status] FROM [qcn].[QCNStatus]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="ClinicalDSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="
-            Select distinct a.LocationID,rTrim(a.ItemID) as ItemID,b.ItemClinicalDescription,rTrim(a.ItemID)+ ' - ' + b.ItemClinicalDescription as ExtendedDescription 
-from [bluebin].[DimBin] a 
-                                inner join [bluebin].[DimItem] b on rtrim(a.ItemID) = rtrim(b.ItemID)  where b.ItemClinicalDescription is not null "  
-            FilterExpression="LocationID = '{0}'" >
+        <asp:SqlDataSource ID="ClinicalDSource" runat="server" ConnectionString="<%$ ConnectionStrings:Site_ConnectionString %>" SelectCommand="exec sp_SelectQCNLocation"  FilterExpression="LocationID = '{0}'" >
         <FilterParameters>
         <asp:ControlParameter Name="LocationID" ControlID="LocationDD" PropertyName="SelectedValue" />
         </FilterParameters>

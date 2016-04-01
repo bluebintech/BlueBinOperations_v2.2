@@ -1,16 +1,20 @@
 ﻿<%@ Page Title="BlueBin Par Master" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="BlueBinParMaster.aspx.vb" Inherits="BlueBinParMaster" %>
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
 
 <asp:Table ID="PageTable" runat="server" >
 <asp:TableRow><asp:TableCell><h2><%: Title %></h2>
     <p>Welcome to the Custom BlueBin ParMaster.</p>
     <p>
-            <asp:LinkButton ID="ParMasterB" runat="server" class="btn btn-default">Par Master</asp:LinkButton>&nbsp;
-            <asp:LinkButton ID="ItemMasterB" runat="server" class="btn btn-default">Item Master</asp:LinkButton>&nbsp;
-            <asp:LinkButton ID="LocationMasterB" runat="server" class="btn btn-default">Locations/Nodes</asp:LinkButton>&nbsp;
+            <asp:Button ID="ParMasterB" runat="server" class="btn btn-default" OnClientClick="ParMasterB_Click" Text="Par Master"></asp:Button>&nbsp;
+            <asp:Button ID="ItemMasterB" runat="server" class="btn btn-default" OnClientClick="ItemMasterB_Click" Text="Item Master"></asp:Button>&nbsp;
+            <asp:Button ID="LocationMasterB" runat="server" class="btn btn-default" OnClientClick="LocationMasterB_Click" Text="Locations/Nodes"></asp:Button>&nbsp;
         </p>
               </asp:TableCell></asp:TableRow>
+    
 <asp:TableRow Height="5"></asp:TableRow>
   <asp:TableRow><asp:TableCell>
         <asp:Table runat="server" ID="SearchTable">
@@ -344,7 +348,7 @@
 
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label runat="server" Text='<%# Bind("ItemDescription") %>' ID="LabelItemDescription" Width="150"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Bind("ItemDescription") %>' ID="LabelItemDescription"></asp:Label>
                 </ItemTemplate>
                 <FooterTemplate><asp:TextBox runat="server" ID="ItemDescription"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorItemDescription" ValidationGroup="AddItemDescription" runat="server" ControlToValidate="ItemDescription" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
                     <ItemStyle Wrap="False" Width="150px"></ItemStyle>
@@ -357,7 +361,7 @@
 
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label runat="server" Text='<%# Bind("ItemClinicalDescription") %>' ID="LabelItemClinicalDescription" Width="150"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Bind("ItemClinicalDescription") %>' ID="LabelItemClinicalDescription"></asp:Label>
                 </ItemTemplate>
                 <FooterTemplate><asp:TextBox runat="server" ID="ItemClinicalDescription"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorItemClinicalDescription" ValidationGroup="ItemClinicalDescription" runat="server" ControlToValidate="ItemClinicalDescription" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
                     <ItemStyle Wrap="False" Width="150px"></ItemStyle>
@@ -365,11 +369,11 @@
             </asp:TemplateField>
                 <asp:TemplateField HeaderText="Active Status" SortExpression="ActiveStatus" Visible ="True">
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("ActiveStatus") %>' ID="ActiveStatusE" Width="10"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorActiveStatus" ValidationGroup="EditActiveStatus" runat="server" ControlToValidate="EditActiveStatus" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
+                    <asp:TextBox runat="server" Text='<%# Bind("ActiveStatus") %>' ID="ActiveStatusE" Width="20"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorActiveStatus" ValidationGroup="EditActiveStatus" runat="server" ControlToValidate="ActiveStatusE" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
 
                 </EditItemTemplate>
                     <ItemTemplate>
-                    <asp:Label runat="server" Text='<%# Bind("ActiveStatus") %>' ID="ActiveStatusL" Width="10"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Bind("ActiveStatus") %>' ID="ActiveStatusL" Width="20"></asp:Label>
                     
                 </ItemTemplate>
                 
@@ -388,7 +392,7 @@
             </asp:TemplateField>
              <asp:TemplateField HeaderText="ManufacturerNo" SortExpression="ManufacturerNo" Visible ="True">
                  <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("ManufacturerNo") %>' ID="ManufacturerNo"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorManufacturerNo" ValidationGroup="EditManufacturerNo" runat="server" ControlToValidate="EditManufacturerNo" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
+                    <asp:TextBox runat="server" Text='<%# Bind("ManufacturerNo") %>' ID="EditManufacturerNo"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorManufacturerNo" ValidationGroup="EditManufacturerNo" runat="server" ControlToValidate="EditManufacturerNo" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
                 <ItemStyle Wrap="False" Width="50px"></ItemStyle>
                 </EditItemTemplate>
                 <ItemTemplate>
@@ -424,7 +428,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="VendorItemID" SortExpression="VendorItemID" Visible ="False">
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("VendorItemID") %>' ID="VendorItemID" Width="50"></asp:TextBox>
+                    <asp:TextBox runat="server" Text='<%# Bind("VendorItemID") %>' ID="VendorItemID" Width="75"></asp:TextBox>
 
                 </EditItemTemplate>
                 <ItemTemplate>
@@ -435,7 +439,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="StockUOM" SortExpression="StockUOM" Visible ="True">
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("StockUOM") %>' ID="StockUOM"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorStockUOM" ValidationGroup="EditStockUOM" runat="server" ControlToValidate="EditStockUOM" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
+                    <asp:TextBox runat="server" Text='<%# Bind("StockUOM") %>' ID="EditStockUOM" Width="40"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorStockUOM" ValidationGroup="EditStockUOM" runat="server" ControlToValidate="EditStockUOM" Display="Dynamic" ForeColor="Red" Font-Size="X-Small">REQUIRED</asp:RequiredFieldValidator>
                 <ItemStyle Wrap="False" Width="50px"></ItemStyle>
                 </EditItemTemplate>
                 <ItemTemplate>
@@ -448,7 +452,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="BuyUOM" SortExpression="BuyUOM" Visible ="False">
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("BuyUOM") %>' ID="BuyUOM"></asp:TextBox>
+                    <asp:TextBox runat="server" Text='<%# Bind("BuyUOM") %>' ID="BuyUOM" Width="40"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label runat="server" Text='<%# Bind("BuyUOM") %>' ID="BuyUOML"></asp:Label>
@@ -459,7 +463,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="PackageString" SortExpression="PackageString" Visible ="False">
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("PackageString") %>' ID="PackageString"></asp:TextBox>
+                    <asp:TextBox runat="server" Text='<%# Bind("PackageString") %>' ID="PackageString" Width="75"></asp:TextBox>
                 <ItemStyle Wrap="False" Width="50px"></ItemStyle>
                 </EditItemTemplate>
                 <ItemTemplate>
@@ -641,7 +645,7 @@
         <asp:SqlDataSource runat="server" ID="ItemMasterDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' 
             DeleteCommand="exec sp_DeleteBlueBinItemMaster @ItemKey" 
             SelectCommand="exec sp_SelectBlueBinItemMaster @ItemDescription,@Manufacturer" 
-            UpdateCommand="exec sp_EditBlueBinItemMaster @ItemKey,@ItemID,@ItemDescription,@ItemClinicalDescription,@ItemManufacturer,@ItemManufacturerNumber,@ItemVendor,@ItemVendorNumber,@VendorItemNumber,@StockUOM,@ActiveStatus,@BuyUOM,@PackageString,@StockLocation">
+            UpdateCommand="exec sp_EditBlueBinItemMaster @ItemKey,@ItemID,@ItemDescription,@ItemClinicalDescription,@Manufacturer,@ManufacturerNo,@Vendor,@VendorNo,@VendorItemID,@StockUOM,@ActiveStatus,@BuyUOM,@PackageString,@StockLocation">
         <DeleteParameters>
             <asp:Parameter Name="ItemKey" Type="Int32"></asp:Parameter>
         </DeleteParameters>
@@ -690,9 +694,9 @@
                 <asp:ControlParameter ControlID="AUSB" Name="AcctUnit" PropertyName="Text" DefaultValue="%"  />
             </SelectParameters>
     </asp:SqlDataSource>
-<asp:SqlDataSource runat="server" ID="FacilityDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="SELECT DISTINCT rtrim([FacilityID]) as FacilityID,[FacilityName] FROM bluebin.[BlueBinFacility]"></asp:SqlDataSource>
+<asp:SqlDataSource runat="server" ID="FacilityDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="SELECT DISTINCT rtrim([FacilityID]) as FacilityID,[FacilityName] FROM bluebin.[DimFacility]"></asp:SqlDataSource>
 <asp:SqlDataSource runat="server" ID="LocationDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="exec sp_SelectLocation"></asp:SqlDataSource>
-<asp:SqlDataSource runat="server" ID="ItemDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="SELECT DISTINCT rtrim([ItemID]) as ItemID,[ItemDescription],rTrim(ItemID)+ ' - ' + COALESCE(ItemDescription,ItemClinicalDescription,'No Description') as ExtendedDescription FROM bluebin.[DimItem]"></asp:SqlDataSource>
+<asp:SqlDataSource runat="server" ID="ItemDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="exec sp_SelectItemIDDescription"></asp:SqlDataSource>
 <asp:SqlDataSource runat="server" ID="BinUOMDataSource" ConnectionString='<%$ ConnectionStrings:Site_ConnectionString %>' SelectCommand="select distinct BinUOM from bluebin.BlueBinParMaster"></asp:SqlDataSource>
 
          </p>

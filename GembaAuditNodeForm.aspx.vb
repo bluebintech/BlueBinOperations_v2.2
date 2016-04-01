@@ -11,7 +11,7 @@ Partial Class GembaAuditNodeForm
     Inherits Page
 
     Dim ImageSourceIDPH As String = DateTime.Now.ToString("yyMMdd")
-    Dim UserLogin As String = Page.User.Identity.Name.ToString()
+    Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
     Dim PS_EmptyBins As Integer = 0
     Dim PS_BackBins As Integer = 0
     Dim PS_StockOuts As Integer = 0

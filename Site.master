@@ -17,7 +17,9 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/Site.css">
-
+    <style type="text/css">
+    
+</style>
 </head>
 
     <body>
@@ -42,6 +44,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
+            
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">

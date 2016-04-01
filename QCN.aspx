@@ -21,6 +21,7 @@
         });
     });
 </script>
+
     <style type="text/css">
     .tooltip td
     {

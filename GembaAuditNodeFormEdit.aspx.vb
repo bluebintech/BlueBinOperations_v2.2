@@ -11,7 +11,7 @@ Imports System.IO
 Partial Class GembaAuditNodeFormEdit
     Inherits Page
     Dim ImageSourceIDPH As String = DateTime.Now.ToString("yyMMdd")
-    Dim UserLogin As String = Page.User.Identity.Name.ToString()
+    Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
     Dim AdditionalComments As String
     Dim PS_EmptyBins As Integer = 0
     Dim PS_BackBins As Integer = 0

@@ -11,6 +11,7 @@ Partial Class BlueBinParMaster
     Inherits Page
 
     Protected Sub ParMasterB_Click(sender As Object, e As EventArgs) Handles ParMasterB.Click
+
         GridViewParMaster.Visible = True
         GridViewItemMaster.Visible = False
         GridViewParMaster.DataBind()
@@ -37,6 +38,7 @@ Partial Class BlueBinParMaster
     End Sub
 
     Protected Sub ItemMasterB_Click(sender As Object, e As EventArgs) Handles ItemMasterB.Click
+
         GridViewParMaster.Visible = False
         GridViewItemMaster.Visible = True
         GridViewItemMaster.DataBind()
@@ -63,6 +65,7 @@ Partial Class BlueBinParMaster
     End Sub
 
     Protected Sub LocationMasterB_Click(sender As Object, e As EventArgs) Handles LocationMasterB.Click
+
         GridViewParMaster.Visible = False
         GridViewItemMaster.Visible = False
         GridViewLocationMaster.Visible = True
@@ -88,7 +91,11 @@ Partial Class BlueBinParMaster
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
+
+
         If Not Page.IsPostBack() Then
+
+
             GridViewParMaster.DataBind()
             'GridViewItemMaster.DataBind()
             'GridViewLocationMaster.DataBind()
@@ -147,7 +154,7 @@ Partial Class BlueBinParMaster
 
             Else
                 GridViewLocationMaster.Columns(0).Visible = False
-                GridViewLocationMaster.Columns(6).Visible = False
+                GridViewLocationMaster.Columns(7).Visible = False
                 GridViewLocationMaster.ShowFooter = False
                 GridViewParMaster.Columns(0).Visible = False
                 GridViewParMaster.Columns(19).Visible = False

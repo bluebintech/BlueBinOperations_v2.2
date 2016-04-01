@@ -27,7 +27,7 @@ Public Class Dashboard
         con.Close()
 
         If Me.Page.User.Identity.IsAuthenticated Then
-            Dim UserLogin As String = Page.User.Identity.Name.ToString()
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
             Dim MENUDashboardSC As String
             Dim MENUDashboardSrc As String
             Dim MENUDashboardOps As String

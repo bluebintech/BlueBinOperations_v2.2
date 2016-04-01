@@ -48,7 +48,7 @@ Partial Class QCNFormEdit
         cmd.Connection = con
         con.Open()
 
-        Dim UserLogin As String = Page.User.Identity.Name.ToString()
+        Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
         Dim QCNID As String
         Dim Location As String
         Dim Requester As String

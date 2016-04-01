@@ -36,6 +36,13 @@ Partial Class Gemba
             cell.ToolTip = TryCast(e.Row.DataItem, DataRowView)("AdditionalCommentsText").ToString()
 
         End If
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim stagecell As TableCell = e.Row.Cells(9)
+            Dim stagescore As Integer = Integer.Parse(stagecell.Text)
+            If stagescore = 0 Then
+                stagecell.BackColor = Color.Red
+            End If
+        End If
 
     End Sub
 

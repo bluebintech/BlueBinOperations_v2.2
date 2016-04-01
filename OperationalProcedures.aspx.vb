@@ -10,7 +10,7 @@ Imports System.IO
 Partial Public Class OperationalProcedures
 
     Inherits System.Web.UI.Page
-    Dim UserLogin As String = Page.User.Identity.Name.ToString()
+    Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
 
 
     Protected Sub Page_Load(sender As Object, e As EventArgs)
@@ -53,7 +53,7 @@ Partial Public Class OperationalProcedures
         GridViewOther.Visible = True
 
         If Me.Page.User.Identity.IsAuthenticated Then
-            Dim UserLogin As String = Page.User.Identity.Name.ToString()
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
             Dim UserDocUploadOther As String
 
             Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString

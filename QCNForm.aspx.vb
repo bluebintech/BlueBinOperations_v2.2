@@ -21,7 +21,7 @@ Partial Class QCNForm
         cmd.Connection = con
         con.Open()
 
-        Dim UserLogin As String = Page.User.Identity.Name.ToString()
+        Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
         Dim Location As String
         Dim Item As String
         Dim Requester As String

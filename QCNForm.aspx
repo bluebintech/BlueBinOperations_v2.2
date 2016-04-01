@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="New QCN Form" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="QCNForm.aspx.vb" Inherits="QCNForm" %>
 
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+
+
     <asp:panel runat ="server">
 <asp:Table ID="PageTable" runat="server" Width="500px" align = "center">
 <asp:TableRow><asp:TableCell><h2>New QCN Form</h2></asp:TableCell></asp:TableRow>
@@ -117,7 +122,13 @@
 
     </asp:TableRow> 
     
-    <asp:TableRow Height="10"></asp:TableRow>
+    <asp:TableRow Height="10">
+        <asp:TableCell><div class="loading">
+            Loading. Please wait.<br />
+                <br />
+                <img src="loader.gif" alt="" /></div></asp:TableCell>
+
+    </asp:TableRow>
  <asp:TableRow><asp:TableCell><asp:Button ID="QCNSubmit" runat="server" Text="Submit" />&nbsp;<asp:Button ID="QCNCancel" runat="server" Text="Cancel" CausesValidation="false"/><br /></asp:TableCell></asp:TableRow>       
       
         </asp:Table>

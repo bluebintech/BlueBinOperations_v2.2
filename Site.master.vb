@@ -36,7 +36,7 @@ Partial Public Class SiteMaster
         End If
 
         If Me.Page.User.Identity.IsAuthenticated Then
-            Dim UserLogin As String = Page.User.Identity.Name.ToString()
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
             Dim UserADMINMENU As String
             Dim UserADMINCONFIG As String
             Dim UserADMINUSERS As String

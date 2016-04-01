@@ -131,12 +131,12 @@ Partial Class UserAdministration
             Using con As New SqlConnection(constr)
                 Using cmd As New SqlCommand("sp_InsertUser")
                     cmd.CommandType = CommandType.StoredProcedure
-                    cmd.Parameters.AddWithValue("@UserLogin", txtUserLogin.Text)
+                    cmd.Parameters.AddWithValue("@UserLogin", txtUserLogin.Text.ToLower())
                     cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text)
                     cmd.Parameters.AddWithValue("@LastName", txtLastName.Text)
                     cmd.Parameters.AddWithValue("@MiddleName", txtMiddleName.Text)
                     cmd.Parameters.AddWithValue("@RoleName", txtRoleName)
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text)
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToLower())
                     cmd.Parameters.AddWithValue("@Title", txtTitle.Text)
                     cmd.Connection = con
                     con.Open()

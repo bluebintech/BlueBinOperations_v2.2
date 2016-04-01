@@ -12,7 +12,7 @@ Imports System.Drawing
 Partial Class ScanLines
     Inherits Page
 
-    Dim UserLogin As String = Page.User.Identity.Name.ToString()
+    Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
     Dim Location As String
     Dim Item1 As String
     Dim Qty1 As String

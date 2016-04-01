@@ -146,7 +146,7 @@ Partial Public Class Login
     End Sub
 
     Protected Sub ForgotPasswordB_Click(sender As System.Object, e As System.EventArgs) Handles ForgotPasswordB.Click
-        Dim UserLogin As String = ForgotPasswordTB.Text
+        Dim UserLogin As String = ForgotPasswordTB.Text.ToLower()
         Dim NewPWD As String
         Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
         Using con As New SqlConnection(constr)
