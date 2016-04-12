@@ -73,6 +73,9 @@ Partial Class QCNFormEdit
         DateCompleted = DateCompletedTB.Text
         LastUpdated = LastUpdatedTB.Text
 
+        Details = Details.Replace("'", "''")
+        Updates = Updates.Replace("'", "''")
+
         If String.IsNullOrEmpty(AssignedDD.SelectedItem.Value.ToString()) Then
             Assigned = ", "
         End If

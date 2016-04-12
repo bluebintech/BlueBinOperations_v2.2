@@ -40,6 +40,9 @@ Partial Class QCNForm
         Details = DetailsTB.Text
         Updates = UpdatesTB.Text
 
+        Details = Details.Replace("'", "''")
+        Updates = Updates.Replace("'", "''")
+
         If String.IsNullOrEmpty(AssignedDD.SelectedItem.Value.ToString()) Then
             Assigned = ", "
         End If

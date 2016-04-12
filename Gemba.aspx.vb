@@ -32,8 +32,8 @@ Partial Class Gemba
     Protected Sub OnRowDataBoundNode(sender As Object, e As GridViewRowEventArgs)
         If e.Row.RowType = DataControlRowType.DataRow Then
 
-            Dim cell As TableCell = e.Row.Cells(12)
-            cell.ToolTip = TryCast(e.Row.DataItem, DataRowView)("AdditionalCommentsText").ToString()
+            Dim cellAdditionalCommentsText As TableCell = e.Row.Cells(13)
+            cellAdditionalCommentsText.ToolTip = TryCast(e.Row.DataItem, DataRowView)("AdditionalCommentsText").ToString()
 
         End If
         If e.Row.RowType = DataControlRowType.DataRow Then

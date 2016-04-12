@@ -106,8 +106,14 @@ Partial Class GembaAuditNodeForm
         PS_Comments = PSCommentsTB.Text
         RS_Comments = RSCommentsTB.Text
         SS_Comments = SS_CommentsTB.Text
-        RS_ShadowedUser = ShadowedUserDD.SelectedItem.Value
         NIS_Comments = NISCommentsTB.Text
+        AdditionalComments = AdditionalComments.Replace("'", "''")
+        PS_Comments = PS_Comments.Replace("'", "''")
+        RS_Comments = RS_Comments.Replace("'", "''")
+        SS_Comments = SS_Comments.Replace("'", "''")
+        NIS_Comments = NIS_Comments.Replace("'", "''")
+
+        RS_ShadowedUser = ShadowedUserDD.SelectedItem.Value
         cmd.CommandType = System.Data.CommandType.Text
         PS_TotalScore = PS_EmptyBins + PS_BackBins + PS_StockOuts + PS_ReturnVolume + PS_NonBBT
         RS_TotalScore = RS_BinsFilled + RS_EmptiesCollected + RS_BinServices + RS_NodeSwept + RS_NodeCorrections

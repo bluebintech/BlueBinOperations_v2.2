@@ -36,8 +36,12 @@ Partial Public Class QCN
 
     Protected Sub OnRowDataBound(sender As Object, e As GridViewRowEventArgs)
         If e.Row.RowType = DataControlRowType.DataRow Then
-            Dim cell As TableCell = e.Row.Cells(21)
-            cell.ToolTip = TryCast(e.Row.DataItem, DataRowView)("DetailsText").ToString()
+            Dim cellLocation As TableCell = e.Row.Cells(3)
+            Dim cellUpdates As TableCell = e.Row.Cells(28)
+            Dim cellDetails As TableCell = e.Row.Cells(12)
+            cellLocation.ToolTip = TryCast(e.Row.DataItem, DataRowView)("LocationID").ToString()
+            cellUpdates.ToolTip = TryCast(e.Row.DataItem, DataRowView)("UpdatesText").ToString()
+            cellDetails.ToolTip = TryCast(e.Row.DataItem, DataRowView)("DetailsText").ToString()
         End If
         If e.Row.RowType = DataControlRowType.DataRow Then
             Dim cell As TableCell = e.Row.Cells(25)

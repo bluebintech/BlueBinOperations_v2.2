@@ -184,6 +184,7 @@ Partial Class BlueBinParMaster
             Dim txtWHSequence As TextBox = DirectCast(GridViewParMaster.FooterRow.FindControl("WHSequenceF"), TextBox)
             Dim txtPatientCharge As String = TryCast(GridViewParMaster.FooterRow.FindControl("PatientChargeDDF"), DropDownList).SelectedItem.Value
 
+
             cmd.Connection = conn
             cmd.CommandText = "exec sp_InsertBlueBinParMaster '" & txtFacilityName & "','" & txtLocationName & "','" & txtItemDescription & "','" & txtBinSequence.Text & "','" & txtBinUOM & "','" & txtBinQuantity.Text & "','" & txtLeadTime & "','" & txtItemType.Text & "','" & txtWHSequence.Text & "','" & txtPatientCharge & "'"
             conn.Open()
@@ -207,8 +208,14 @@ Partial Class BlueBinParMaster
             Dim txtVendorNo As TextBox = DirectCast(GridViewItemMaster.FooterRow.FindControl("VendorNo"), TextBox)
             Dim txtVendorItemID As TextBox = DirectCast(GridViewItemMaster.FooterRow.FindControl("VendorItemID"), TextBox)
             Dim txtStockUOM As TextBox = DirectCast(GridViewItemMaster.FooterRow.FindControl("StockUOM"), TextBox)
+
+            Dim StItemDescription As String = txtItemDescription.Text
+            Dim StItemClinicalDescription As String = txtItemClinicalDescription.Text
+            StItemDescription = StItemDescription.Replace("'", "''")
+            StItemClinicalDescription = StItemClinicalDescription.Replace("'", "''")
+
             cmd.Connection = conn
-            cmd.CommandText = "exec sp_InsertBlueBinItemMaster '" & txtItemID.Text & "','" & txtItemDescription.Text & "','" & txtItemClinicalDescription.Text & "','" & txtManufacturer.Text & "','" & txtManufacturerNo.Text & "','" & txtVendor.Text & "','" & txtVendorNo.Text & "','" & txtVendorItemID.Text & "','" & txtStockUOM.Text & "'"
+            cmd.CommandText = "exec sp_InsertBlueBinItemMaster '" & txtItemID.Text & "','" & StItemDescription & "','" & StItemClinicalDescription & "','" & txtManufacturer.Text & "','" & txtManufacturerNo.Text & "','" & txtVendor.Text & "','" & txtVendorNo.Text & "','" & txtVendorItemID.Text & "','" & txtStockUOM.Text & "'"
             conn.Open()
             cmd.ExecuteNonQuery()
             conn.Close()
@@ -227,8 +234,12 @@ Partial Class BlueBinParMaster
             Dim cmd As New SqlCommand()
             Dim txtLocationID As TextBox = DirectCast(GridViewLocationMaster.FooterRow.FindControl("LocationID"), TextBox)
             Dim txtLocationName As TextBox = DirectCast(GridViewLocationMaster.FooterRow.FindControl("LocationName"), TextBox)
+
+            Dim StLocationName As String = txtLocationName.Text
+            StLocationName = StLocationName.Replace("'", "''")
+
             cmd.Connection = conn
-            cmd.CommandText = "exec sp_InsertBlueBinLocationMaster '" & txtLocationID.Text & "','" & txtLocationName.Text & "'"
+            cmd.CommandText = "exec sp_InsertBlueBinLocationMaster '" & txtLocationID.Text & "','" & StLocationName & "'"
             conn.Open()
             cmd.ExecuteNonQuery()
             conn.Close()
