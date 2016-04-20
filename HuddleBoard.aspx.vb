@@ -15,7 +15,7 @@ Partial Public Class HuddleBoard
         da.Fill(dt)
         Dim Report As String = "/Huddleboard"
         Dim TableaURLDB As String = dt.Rows(0)("ConfigValue").ToString()
-        TableauFullURL = "https://10ay.online.tableau.com/#/site" & TableaURLDB & "HuddleBoard"
+        TableauFullURL = "https://10ay.online.tableau.com/t" & TableaURLDB & "HuddleBoard"
 
         con.Close()
     End Sub

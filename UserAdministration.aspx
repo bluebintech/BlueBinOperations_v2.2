@@ -54,7 +54,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Login/Email" InsertVisible="False" SortExpression="UserLogin">
                 <EditItemTemplate>
-                    <asp:Label runat="server" Width="80px" Text='<%# Eval("UserLogin") %>' ID="ETUserLoginL"></asp:Label>
+                    <asp:Label runat="server" Text='<%# Eval("UserLogin") %>' ID="ETUserLoginL"></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label runat="server" Text='<%# Bind("UserLogin") %>' ID="ITUserLoginL"></asp:Label>
@@ -121,6 +121,26 @@
                 </ItemTemplate>
                 <FooterTemplate><asp:TextBox runat="server" Width="80px" ID="Title"></asp:TextBox></FooterTemplate>
                 <ItemStyle Wrap="False" Width="50px"></ItemStyle>
+            </asp:TemplateField>
+             <asp:TemplateField HeaderText="GembaTier" SortExpression="GembaTier">
+                <EditItemTemplate><asp:DropDownList runat="server"  AutoPostBack="False" ID="GembaTierDDE" SelectedValue=<%#Bind("GembaTier")%>>
+                        <asp:ListItem Value=""></asp:ListItem>
+                        <asp:ListItem Value="Tier1">Tier1</asp:ListItem>
+                        <asp:ListItem Value="Tier2">Tier2</asp:ListItem>
+                        <asp:ListItem Value="Tier3">Tier3</asp:ListItem>
+                    </asp:DropDownList>
+                 </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label runat="server" Text='<%# Bind("GembaTier") %>' ID="ITGembaTierL"></asp:Label>
+                </ItemTemplate>
+                <FooterTemplate>
+                    <asp:DropDownList runat="server"  AutoPostBack="False" ID="GembaTierDDF">
+                        <asp:ListItem Value="" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="Tier1">Tier1</asp:ListItem>
+                        <asp:ListItem Value="Tier2">Tier2</asp:ListItem>
+                        <asp:ListItem Value="Tier3">Tier3</asp:ListItem>
+                    </asp:DropDownList>
+                </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Role" SortExpression="RoleID">
                 <EditItemTemplate>
@@ -492,7 +512,7 @@
             SelectCommand="exec sp_SelectUsers @Name" 
             UpdateCommand="exec sp_EditUser @BlueBinUserID,@UserLogin,
             @FirstName,@LastName,@MiddleName,@Active,@Email,
-            @MustChangePassword,@PasswordExpires,@Password,@RoleName,@Title">
+            @MustChangePassword,@PasswordExpires,@Password,@RoleName,@Title,@GembaTier">
         <DeleteParameters>
             <asp:Parameter Name="BlueBinUserID" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="UserLogin" Type="String"></asp:Parameter>
@@ -502,6 +522,7 @@
             <asp:Parameter Name="LastName" Type="String"></asp:Parameter>
             <asp:Parameter Name="MiddleName" Type="String"></asp:Parameter>
             <asp:Parameter Name="Active"></asp:Parameter>
+            <asp:Parameter Name="GembaTier"></asp:Parameter>
             <asp:Parameter Name="Email" Type="String"></asp:Parameter>
             <asp:Parameter Name="MustChangePassword" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="PasswordExpires" Type="Int32"></asp:Parameter>

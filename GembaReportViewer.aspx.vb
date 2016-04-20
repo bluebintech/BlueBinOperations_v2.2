@@ -15,7 +15,7 @@ Partial Public Class GembaReportViewer
         da.Fill(dt)
         Dim Report As String = "/GembaDashboard"
         Dim TableaURLDB As String = dt.Rows(0)("ConfigValue").ToString()
-        TableauFullURL = "https://10ay.online.tableau.com/#/site" & TableaURLDB & "GembaDashboard"
+        TableauFullURL = "https://10ay.online.tableau.com/t" & TableaURLDB & "GembaDashboard"
 
         con.Close()
     End Sub

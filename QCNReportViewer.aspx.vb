@@ -15,7 +15,7 @@ Partial Public Class QCNReportViewer
         da.Fill(dt)
         Dim Report As String = "/QCNDashboard"
         Dim TableaURLDB As String = dt.Rows(0)("ConfigValue").ToString()
-        TableauFullURL = "https://10ay.online.tableau.com/#/site" & TableaURLDB & "QCNDashboard"
+        TableauFullURL = "https://10ay.online.tableau.com/t" & TableaURLDB & "QCNDashboard"
 
         con.Close()
     End Sub
