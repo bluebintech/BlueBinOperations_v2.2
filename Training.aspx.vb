@@ -8,10 +8,46 @@ Imports System.Configuration
 Partial Class Training
     Inherits Page
     Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
+    Protected Sub TrainingB_Click(sender As Object, e As EventArgs) Handles TrainingB.Click
+        GridViewTraining.Visible = True
+        GridViewTrainingModule.Visible = False
+        SearchBox.Visible = True
+        SearchModule.Visible = True
+        SearchNameLB.Visible = True
+        SearchModuleLB.Visible = True
+        ExportTraining.Visible = True
+        hiddenTraining.Visible = True
+        hiddenTrainingModule.Visible = False
+        GridViewTraining.DataBind()
+    End Sub
+
+    Protected Sub TrainingModulesB_Click(sender As Object, e As EventArgs) Handles TrainingModulesB.Click
+        GridViewTraining.Visible = False
+        GridViewTrainingModule.Visible = True
+        SearchBox.Visible = False
+        SearchModule.Visible = True
+        SearchNameLB.Visible = False
+        SearchModuleLB.Visible = True
+        ExportTraining.Visible = False
+        hiddenTraining.Visible = False
+        hiddenTrainingModule.Visible = True
+        GridViewTrainingModule.DataBind()
+    End Sub
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack() Then
+            GridViewTraining.Visible = True
+            GridViewTrainingModule.Visible = False
+            SearchBox.Visible = True
+            SearchModule.Visible = True
+            SearchNameLB.Visible = True
+            SearchModuleLB.Visible = True
+            ExportTraining.Visible = True
+            hiddenTraining.Visible = True
+            hiddenTrainingModule.Visible = False
             UpdaterTB.Text = UserLogin
             GridViewTraining.DataBind()
+            GridViewTrainingModule.DataBind()
         End If
     End Sub
     Protected Sub Training_RowCommand(ByVal sender As System.Object, ByVal e As System.Web.UI.WebControls.GridViewCommandEventArgs)
@@ -37,6 +73,34 @@ Partial Class Training
             End Using
 
             GridViewTraining.DataBind()
+        End If
+
+
+    End Sub
+
+    Protected Sub TrainingModule_RowCommand(ByVal sender As System.Object, ByVal e As System.Web.UI.WebControls.GridViewCommandEventArgs)
+        If e.CommandName = "TrainingModuleInsert" Then
+            Dim txtModuleName As TextBox = DirectCast(GridViewTrainingModule.FooterRow.FindControl("TrainingModuleNameF"), TextBox)
+            Dim txtModuleDescription As TextBox = DirectCast(GridViewTrainingModule.FooterRow.FindControl("TrainingModuleDescriptionF"), TextBox)
+            Dim txtRequired As String = TryCast(GridViewTrainingModule.FooterRow.FindControl("RequiredDDF"), DropDownList).SelectedItem.Value
+
+
+
+            Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
+            Using con As New SqlConnection(constr)
+                Using cmd As New SqlCommand("sp_InsertTrainingModule")
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.AddWithValue("@ModuleName", txtModuleName.Text)
+                    cmd.Parameters.AddWithValue("@ModuleDescription", txtModuleDescription.Text)
+                    cmd.Parameters.AddWithValue("@Required", txtRequired)
+                    cmd.Connection = con
+                    con.Open()
+                    cmd.ExecuteNonQuery()
+                    con.Close()
+                End Using
+            End Using
+
+            GridViewTrainingModule.DataBind()
         End If
 
 

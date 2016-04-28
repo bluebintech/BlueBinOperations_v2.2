@@ -127,6 +127,7 @@ Partial Class UserAdministration
             Dim txtEmail As TextBox = DirectCast(GridViewUsers.FooterRow.FindControl("Email"), TextBox)
             Dim txtTitle As TextBox = DirectCast(GridViewUsers.FooterRow.FindControl("Title"), TextBox)
             Dim txtGembaTier As String = TryCast(GridViewUsers.FooterRow.FindControl("GembaTierDDF"), DropDownList).SelectedItem.Value
+            Dim txtERPUser As TextBox = DirectCast(GridViewUsers.FooterRow.FindControl("ERPUser"), TextBox)
 
             Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
             Using con As New SqlConnection(constr)
@@ -140,6 +141,7 @@ Partial Class UserAdministration
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToLower())
                     cmd.Parameters.AddWithValue("@Title", txtTitle.Text)
                     cmd.Parameters.AddWithValue("@GembaTier", txtGembaTier)
+                    cmd.Parameters.AddWithValue("@ERPUser", txtERPUser.Text)
                     cmd.Connection = con
                     con.Open()
                     'cmd.ExecuteNonQuery()

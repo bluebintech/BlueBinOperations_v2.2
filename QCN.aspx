@@ -105,6 +105,7 @@
             <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0:d}" />
             <asp:BoundField DataField="BinStatus" HeaderText="Bin Status" SortExpression="BinStatus" />
             <asp:BoundField DataField="Status" HeaderText="QCN Status" SortExpression="Status" />
+            <asp:BoundField runat="server" DataField="InternalReference" HeaderText="Reference" SortExpression="InternalReference" />
              <asp:TemplateField ShowHeader="False">
              <ItemTemplate>
             <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete this entry?');">Delete</asp:LinkButton>             

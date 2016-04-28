@@ -30,6 +30,7 @@ Partial Class QCNForm
         Dim QCNStatus As String
         Dim Details As String
         Dim Updates As String
+        Dim InternalReference As String
 
         Location = LocationDD.SelectedItem.Value
         Item = ClinicalDescriptionDD.SelectedItem.Value
@@ -39,9 +40,12 @@ Partial Class QCNForm
         QCNStatus = QCNStatusDD.SelectedItem.Value
         Details = DetailsTB.Text
         Updates = UpdatesTB.Text
+        InternalReference = InternalReferenceTB.Text
+
 
         Details = Details.Replace("'", "''")
         Updates = Updates.Replace("'", "''")
+        InternalReference = InternalReference.Replace("'", "''")
 
         If String.IsNullOrEmpty(AssignedDD.SelectedItem.Value.ToString()) Then
             Assigned = ", "
@@ -60,8 +64,8 @@ Partial Class QCNForm
                 '" & Details & "',
                 '" & Updates & "',
                 '" & QCNStatus & "',
-                '" & UserLogin & "'
-
+                '" & UserLogin & "',
+                '" & InternalReference & "'
 
 "
 

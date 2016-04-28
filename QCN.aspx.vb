@@ -4,6 +4,9 @@ Imports System.Data.SqlClient
 Imports System.Drawing
 Imports System.IO
 Imports System.Configuration
+Imports System.Net.Mail
+Imports System.Web.UI.WebControls
+
 
 Partial Public Class QCN
     Inherits Page
@@ -11,6 +14,36 @@ Partial Public Class QCN
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         GridViewQCN.DataBind()
+
+
+        If Me.Page.User.Identity.IsAuthenticated Then
+            Dim UserLogin As String = Page.User.Identity.Name.ToString().ToLower()
+            Dim QCNReferenceC As String
+            Dim constr As String = ConfigurationManager.ConnectionStrings("Site_ConnectionString").ConnectionString
+
+            Using conmenu As New SqlConnection(constr)
+                Using cmdadmin As New SqlCommand("sp_ValidateMenus")
+
+                    cmdadmin.CommandType = CommandType.StoredProcedure
+                    cmdadmin.Connection = conmenu
+                    conmenu.Open()
+
+                    'QCN-ReferenceC
+                    cmdadmin.Parameters.AddWithValue("@ConfigName", "QCN-ReferenceC")
+                    QCNReferenceC = Convert.ToString(cmdadmin.ExecuteScalar())
+                    conmenu.Close()
+                End Using
+            End Using
+
+            If QCNReferenceC = "Yes" Then
+                GridViewQCN.Columns(29).Visible = True
+            Else
+                GridViewQCN.Columns(29).Visible = False
+
+            End If
+
+
+        End If
 
     End Sub
 

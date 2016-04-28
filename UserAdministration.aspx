@@ -122,6 +122,16 @@
                 <FooterTemplate><asp:TextBox runat="server" Width="80px" ID="Title"></asp:TextBox></FooterTemplate>
                 <ItemStyle Wrap="False" Width="50px"></ItemStyle>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="ERP UID" SortExpression="ERPUser">
+                <EditItemTemplate>
+                    <asp:TextBox runat="server" Width="80px" Text='<%# Bind("ERPUser") %>' ID="ERPUserTB"></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label runat="server" Text='<%# Bind("ERPUser") %>' ID="ITERPUserL"></asp:Label>
+                </ItemTemplate>
+                <FooterTemplate><asp:TextBox runat="server" Width="80px" ID="ERPUser"></asp:TextBox></FooterTemplate>
+                <ItemStyle Wrap="False" Width="50px"></ItemStyle>
+            </asp:TemplateField>
              <asp:TemplateField HeaderText="GembaTier" SortExpression="GembaTier">
                 <EditItemTemplate><asp:DropDownList runat="server"  AutoPostBack="False" ID="GembaTierDDE" SelectedValue=<%#Bind("GembaTier")%>>
                         <asp:ListItem Value=""></asp:ListItem>
@@ -512,7 +522,7 @@
             SelectCommand="exec sp_SelectUsers @Name" 
             UpdateCommand="exec sp_EditUser @BlueBinUserID,@UserLogin,
             @FirstName,@LastName,@MiddleName,@Active,@Email,
-            @MustChangePassword,@PasswordExpires,@Password,@RoleName,@Title,@GembaTier">
+            @MustChangePassword,@PasswordExpires,@Password,@RoleName,@Title,@GembaTier,@ERPUser">
         <DeleteParameters>
             <asp:Parameter Name="BlueBinUserID" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="UserLogin" Type="String"></asp:Parameter>
@@ -523,6 +533,7 @@
             <asp:Parameter Name="MiddleName" Type="String"></asp:Parameter>
             <asp:Parameter Name="Active"></asp:Parameter>
             <asp:Parameter Name="GembaTier"></asp:Parameter>
+            <asp:Parameter Name="ERPUser"></asp:Parameter>
             <asp:Parameter Name="Email" Type="String"></asp:Parameter>
             <asp:Parameter Name="MustChangePassword" Type="Int32"></asp:Parameter>
             <asp:Parameter Name="PasswordExpires" Type="Int32"></asp:Parameter>

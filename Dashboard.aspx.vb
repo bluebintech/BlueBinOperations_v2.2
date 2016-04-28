@@ -91,9 +91,9 @@ Public Class Dashboard
                     MENUDashboardOps = Convert.ToString(cmdmenu.ExecuteScalar())
                     cmdmenu.Parameters.Clear()
                     'MENU-Dashboard-HuddleBoard
-                    cmdmenu.Parameters.AddWithValue("@ConfigName", "MENU-Dashboard-HuddleBoard")
-                    MENUDashboardHB = Convert.ToString(cmdmenu.ExecuteScalar())
-                    cmdmenu.Parameters.Clear()
+                    'cmdmenu.Parameters.AddWithValue("@ConfigName", "MENU-Dashboard-HuddleBoard")
+                    'MENUDashboardHB = Convert.ToString(cmdmenu.ExecuteScalar())
+                    'cmdmenu.Parameters.Clear()
                     conmenu.Close()
                 End Using
             End Using
@@ -121,13 +121,13 @@ Public Class Dashboard
                 download2.Visible = True
             End If
 
-            If MENUDashboardHB = "No" Or UserMENUDashboardHB = "No" Then
-                HuddleBoardDD.Visible = False
-                HBDivider.Visible = False
-            Else
-                HuddleBoardDD.Visible = True
-                HBDivider.Visible = True
-            End If
+            'If MENUDashboardHB = "No" Or UserMENUDashboardHB = "No" Then
+            'HuddleBoardDD.Visible = False
+            'HBDivider.Visible = False
+            'Else
+            'HuddleBoardDD.Visible = True
+            'HBDivider.Visible = True
+            'End If
 
         End If
 

@@ -123,7 +123,15 @@
                 </asp:TableCell></asp:TableRow><asp:TableRow Height="10">
 
                                                </asp:TableRow>
-                       <asp:TableRow>    
+                <asp:TableRow>    
+                <asp:TableCell>
+                    <asp:Label ID="InternalReferenceL" runat="server" Text="Reference" ></asp:Label>
+                      </asp:TableCell><asp:TableCell>
+                    <asp:TextBox ID="InternalReferenceTB" runat="server" Width="150px" TextMode="SingleLine"></asp:TextBox>
+                </asp:TableCell></asp:TableRow><asp:TableRow Height="10"></asp:TableRow>
+            
+            
+            <asp:TableRow>    
                 <asp:TableCell>
                     <asp:Label ID="Details" runat="server" Text="Details" ></asp:Label>
                     <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorDetails" ControlToValidate="DetailsTB" runat="server" ForeColor="Red"  ErrorMessage=" Required" Font-Size="X-Small"></asp:RequiredFieldValidator>
@@ -131,7 +139,8 @@
                 </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="DetailsTB" runat="server" Height="150px" Width="575px" TextMode="MultiLine"></asp:TextBox>
                 </asp:TableCell></asp:TableRow><asp:TableRow Height="10"></asp:TableRow>
-                       <asp:TableRow>    
+                       
+            <asp:TableRow>    
                 <asp:TableCell>
                     <asp:Label ID="Updates" runat="server" Text="Updates"></asp:Label>
         

@@ -35,6 +35,7 @@ Partial Class QCNFormEdit
             DetailsTB.Text = dt.Rows(0)("Details").ToString()
             UpdatesTB.Text = dt.Rows(0)("Updates").ToString()
             LastUpdatedTB.Text = dt.Rows(0)("LastUpdated").ToString()
+            InternalReferenceTB.Text = dt.Rows(0)("InternalReference").ToString()
             con.Close()
         End If
     End Sub
@@ -60,6 +61,8 @@ Partial Class QCNFormEdit
         Dim Updates As String
         Dim DateCompleted As String
         Dim LastUpdated As String
+        Dim InternalReference As String
+
 
         QCNID = QCNIDTB.Text
         Location = LocationDD.SelectedItem.Value
@@ -72,9 +75,12 @@ Partial Class QCNFormEdit
         Updates = UpdatesTB.Text
         DateCompleted = DateCompletedTB.Text
         LastUpdated = LastUpdatedTB.Text
+        InternalReference = InternalReferenceTB.Text
+
 
         Details = Details.Replace("'", "''")
         Updates = Updates.Replace("'", "''")
+        InternalReference = InternalReference.Replace("'", "''")
 
         If String.IsNullOrEmpty(AssignedDD.SelectedItem.Value.ToString()) Then
             Assigned = ", "
@@ -92,7 +98,8 @@ Partial Class QCNFormEdit
                             '" & QCNType & "',
                             '" & Details & "',
                             '" & Updates & "',
-                            '" & QCNStatus & "'
+                            '" & QCNStatus & "',
+                            '" & InternalReference & "'
 
 exec sp_InsertMasterLog '" & UserLogin & "','QCN','Edit QCN Form','" & QCNID & "'
 "
